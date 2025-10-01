@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M4 — Pessoal (RH)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>body{font-family:'Poppins',sans-serif;background:#1A237E;color:#E0E0E0}.bg-card{background:#283593}a.btn{background:#42A5F5;color:#fff;padding:.6rem 1rem;border-radius:.6rem;font-weight:600}</style>
+</head>
+<body class="p-6">
+  <header class="max-w-5xl mx-auto mb-6">
+    <a href="index.html" class="btn inline-block mb-4">← Voltar</a>
+    <h1 class="text-3xl font-bold">Módulo 4 — Pessoal (RH)</h1>
+    <p class="text-gray-300">Contratos, folha e atendimento com IA.</p>
+  </header>
+
+  <main class="max-w-5xl mx-auto space-y-6">
+    <section class="bg-card p-6 rounded-lg">
+      <h2 class="font-bold text-xl mb-2">Como realizar — Contratos e aditivos</h2>
+      <ol class="list-decimal pl-6 text-sm space-y-2">
+        <li>Definir modelo base jurídico do escritório.</li>
+        <li>Usar IA para preencher variáveis: partes, função, jornada, salário, cláusulas.</li>
+        <li>Gerar checklist de conformidade (CLT/Convenção) e pontos de atenção.</li>
+        <li>Exportar para PDF e registrar versão.</li>
+      </ol>
+      <details class="mt-3">
+        <summary class="cursor-pointer font-semibold">Prompt — Geração de contrato</summary>
+        <pre class="text-xs whitespace-pre-wrap">
+Com base no modelo abaixo, preencha as variáveis e gere contrato de trabalho para [cargo] em [cidade/UF].
+Inclua cláusulas sobre confidencialidade, LGPD e banco de horas quando aplicável.
+Devolva também um checklist de documentos para admissão.
+[cole aqui o modelo sanitizado, sem dados sensíveis]
+        </pre>
+      </details>
+    </section>
+
+    <section class="bg-card p-6 rounded-lg">
+      <h2 class="font-bold text-xl mb-2">Como realizar — Conferência de folha</h2>
+      <ul class="list-disc pl-5 text-sm space-y-1">
+        <li>Exportar <em>holerites</em> e rubricas para planilha.</li>
+        <li>IA confere regras: adicionais, descontos, INSS, FGTS, IRRF segundo parâmetros.</li>
+        <li>Gerar relatório de divergências e enviar ao responsável.</li>
+      </ul>
+      <details class="mt-3">
+        <summary class="cursor-pointer font-semibold">Prompt — Validação de folha</summary>
+        <pre class="text-xs whitespace-pre-wrap">
+Audite a planilha de folha. Verifique rubricas, bases e cálculos (INSS/FGTS/IRRF) conforme regras informadas.
+Aponte divergências e descreva a fórmula esperada. Saída em tabela.
+        </pre>
+      </details>
+    </section>
+
+    <section class="bg-card p-6 rounded-lg grid md:grid-cols-3 gap-4">
+      <div>
+        <h3 class="font-bold mb-1">Ferramentas</h3>
+        <ul class="text-sm list-disc pl-5">
+          <li>LLM corporativo</li><li>Planilhas + Copilot</li><li>Assinatura digital</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold mb-1">KPIs</h3>
+        <ul class="text-sm list-disc pl-5">
+          <li>Tempo por admissão</li><li>Divergências por folha</li><li>Prazos cumpridos</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold mb-1">Riscos</h3>
+        <ul class="text-sm list-disc pl-5">
+          <li>Cláusulas inadequadas → revisão jurídica</li>
+          <li>Dados sensíveis → anonimizar e usar ambiente seguro</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
