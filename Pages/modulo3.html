@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M3 — Fiscal com IA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="mblogo.png">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .glass-card:hover {
+            box-shadow: 0 0 30px rgba(0, 191, 255, 0.1);
+            border-color: rgba(0, 191, 255, 0.2);
+        }
+    </style>
+</head>
+
+<body class="bg-slate-900 text-slate-300 overflow-x-hidden">
+
+    <div class="absolute top-0 left-0 -z-10 h-full w-full">
+        <div class="relative h-full w-full">
+            <div class="absolute top-0 right-0 h-[500px] w-[500px] rounded-full bg-purple-500/20 blur-3xl filter"></div>
+            <div class="absolute bottom-0 left-0 h-[400px] w-[400px] rounded-full bg-cyan-500/20 blur-3xl filter"></div>
+        </div>
+    </div>
+
+    <header class="max-w-5xl mx-auto py-12 px-6">
+        <a href="index.html" class="inline-flex items-center gap-2 bg-slate-700/50 text-cyan-400 font-semibold px-4 py-2 rounded-lg hover:bg-slate-600/50 transition-colors duration-300 border border-slate-600 mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+            </svg>
+            Voltar para a Home
+        </a>
+        <h1 class="text-4xl md:text-5xl font-bold text-white">Módulo 3 — Fiscal com IA</h1>
+        <p class="text-xl text-slate-400 mt-2">Automatização de NF-e, validações e alertas de tributos.</p>
+    </header>
+
+    <main class="max-w-5xl mx-auto space-y-8 px-6 pb-24">
+        
+        <section class="glass-card bg-slate-800/50 backdrop-blur-lg p-8 rounded-2xl border border-slate-700">
+            <h2 class="font-bold text-2xl text-white mb-4">Como Realizar — Leitura em Lote de NF-e</h2>
+            <ol class="list-decimal list-inside text-slate-300 space-y-2 mb-6">
+                <li>Exporte os XMLs do período para uma pasta padrão (Ex: <code class="text-xs bg-slate-700 p-1 rounded">/Fiscal/2025-01/NFe/</code>).</li>
+                <li>Use um leitor de XML/OCR para extrair os campos: CNPJ, chave, CFOP, CST, base, alíquota e valor.</li>
+                <li>Suba a planilha gerada para a IA com o prompt de validação fiscal.</li>
+                <li>Receba um relatório de inconsistências e corrija os erros no seu sistema ERP.</li>
+                <li>Salve o log da auditoria da IA junto à pasta do mês correspondente.</li>
+            </ol>
+            <details class="bg-slate-700/50 rounded-lg border border-slate-700">
+                <summary class="font-semibold cursor-pointer p-4">Prompt — Validação fiscal de NF-e</summary>
+                <div class="p-4 border-t border-slate-700">
+                    <pre class="whitespace-pre-wrap text-sm text-slate-300 font-mono">Você é um auditor fiscal. Valide a planilha de NF-e anexa, checando: CFOP, CST, base de cálculo, alíquotas e vinculação de produto.
+
+Sinalize:
+1. CFOP incoerente com a natureza da operação.
+2. CST incompatível com o regime do contribuinte.
+3. Diferenças entre base x alíquota x imposto.
+4. Duplicidades de chave de acesso.
+5. Notas fora do período de apuração.
+
+Formato da Saída:
+Tabela "Inconsistências" com as colunas: [Chave | Campo Problemático | Valor Encontrado | Valor Esperado | Regra Fiscal | Ação Sugerida].</pre>
+                </div>
+            </details>
+        </section>
+
+        <section class="glass-card bg-slate-800/50 backdrop-blur-lg p-8 rounded-2xl border border-slate-700">
+            <h2 class="font-bold text-2xl text-white mb-4">Como Realizar — Alertas de Tributos</h2>
+            <ul class="list-disc list-inside text-slate-300 space-y-2 mb-6">
+                <li>Mantenha um calendário fiscal no Google Calendar com os códigos de tributo por UF/município.</li>
+                <li>Crie uma automação (Zapier/Make): quando um evento estiver a 5 dias do prazo, envie um resumo e um checklist para o responsável.</li>
+                <li>Use a IA para gerar e enviar um e-mail/WhatsApp para o cliente com o aviso e os documentos necessários.</li>
+            </ul>
+            <details class="bg-slate-700/50 rounded-lg border border-slate-700">
+                <summary class="font-semibold cursor-pointer p-4">Prompt — Mensagem de aviso ao cliente</summary>
+                <div class="p-4 border-t border-slate-700">
+                    <pre class="whitespace-pre-wrap text-sm text-slate-300 font-mono">Crie um aviso curto e profissional sobre o vencimento de [nome do tributo] em [data de vencimento], para a empresa de CNPJ [número do CNPJ].
+
+Liste os documentos que precisamos para a apuração.
+Informe o valor estimado (se aplicável) e as consequências do atraso.
+
+Finalize com um CTA claro: "Por favor, confirme o recebimento e nos envie as pendências até [data-2 dias]".</pre>
+                </div>
+            </details>
+        </section>
+
+        <section class="glass-card bg-slate-800/50 backdrop-blur-lg p-8 rounded-2xl border border-slate-700">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="font-bold text-lg text-cyan-400 mb-2">Ferramentas</h3>
+                    <ul class="list-disc list-inside text-slate-300 space-y-1">
+                        <li>Planilhas (Excel/Sheets)</li>
+                        <li>Zapier ou Make</li>
+                        <li>Leitor de XML / OCR</li>
+                        <li>ChatGPT/Gemini</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg text-cyan-400 mb-2">KPIs</h3>
+                    <ul class="list-disc list-inside text-slate-300 space-y-1">
+                        <li>Erros por 100 NF-e (↓)</li>
+                        <li>Tempo de conciliação (↓)</li>
+                        <li>Notas sem chave válida (↓)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg text-cyan-400 mb-2">Boas Práticas</h3>
+                    <ul class="list-disc list-inside text-slate-300 space-y-1">
+                        <li>Organize pastas por período + logs</li>
+                        <li>Mantenha listas de exceções por cliente</li>
+                        <li>Faça dupla checagem em mudanças tributárias</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+</body>
+</html>

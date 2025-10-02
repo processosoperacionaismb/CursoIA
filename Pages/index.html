@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curso de IA - MB Contabilidade</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="../Public/mblogo.png">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Efeito de brilho sutil para os cards */
+        .glass-card:hover {
+            box-shadow: 0 0 30px rgba(0, 191, 255, 0.15);
+            border-color: rgba(0, 191, 255, 0.3);
+        }
+    </style>
+</head>
+
+<body class="bg-slate-900 text-slate-300 overflow-x-hidden">
+
+    <div class="absolute top-0 left-0 -z-10 h-full w-full">
+        <div class="relative h-full w-full">
+            <div class="absolute -top-40 -left-40 h-[400px] w-[400px] rounded-full bg-purple-500/30 blur-3xl filter"></div>
+            <div class="absolute -bottom-40 -right-40 h-[500px] w-[500px] rounded-full bg-cyan-500/20 blur-3xl filter"></div>
+        </div>
+    </div>
+
+    <header class="min-h-screen flex flex-col items-center justify-center p-6 text-center overflow-hidden">
+        <img src="../Public/mblogo.png" alt="MB Contabilidade" class="h-16 w-auto mb-8 rounded-lg shadow-xl" />
+        
+        <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 leading-tight">
+            Desvende o Futuro da Contabilidade<br> com <span class="text-cyan-400">Inteligência Artificial</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-slate-400 mb-8 max-w-3xl mx-auto">
+            Automatize tarefas, ganhe precisão e transforme dados em estratégia.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#modulos"
+                class="bg-cyan-500 text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-cyan-600 transform hover:-translate-y-1 transition-all duration-300">
+                Ver Módulos do Curso
+            </a>
+            <a href="#oque"
+                class="bg-slate-700/50 backdrop-blur-sm text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-slate-600/50 transform hover:-translate-y-1 transition-all duration-300 border border-slate-600">
+                O que é IA?
+            </a>
+        </div>
+    </header>
+
+    <section id="oque" class="py-24">
+        <div class="max-w-7xl mx-auto text-center px-6 lg:px-8 xl:max-w-screen-xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">A Revolução Silenciosa da Contabilidade</h2>
+            <p class="text-lg text-slate-400 mb-12 max-w-3xl mx-auto">IA não é sobre substituir pessoas. É sobre potencializar o seu talento, eliminando o trabalho repetitivo para que você possa focar no que realmente importa: a estratégia.</p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-card bg-slate-800/50 backdrop-blur-lg p-8 rounded-2xl border border-slate-700 transition-all duration-300">
+                    <h4 class="text-xl font-bold text-white mb-3">Agilidade Extrema</h4>
+                    <p>Fechamentos, conciliações e validações em uma fração do tempo.</p>
+                </div>
+                <div class="glass-card bg-slate-800/50 backdrop-blur-lg p-8 rounded-2xl border border-slate-700 transition-all duration-300">
+                    <h4 class="text-xl font-bold text-white mb-3">Dados Inteligentes</h4>
+                    <p>Encontre qualquer informação em segundos usando linguagem natural.</p>
+                </div>
+                <div class="glass-card bg-slate-800/50 backdrop-blur-lg p-8 rounded-2xl border border-slate-700 transition-all duration-300">
+                    <h4 class="text-xl font-bold text-white mb-3">Precisão Absoluta</h4>
+                    <p>Reduza erros humanos a quase zero e garanta conformidade total.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="py-24 px-6" id="modulos">
+        <div class="max-w-7xl mx-auto xl:max-w-screen-xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-16">Trilha de Aprendizagem Completa</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <a href="modulo1.html" class="glass-card group bg-slate-800/50 backdrop-blur-lg p-6 rounded-2xl border border-slate-700 flex flex-col transition-all duration-300 transform hover:-translate-y-2">
+                    <h3 class="text-xl font-bold text-cyan-400 mb-3 flex items-center gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
+                        Módulo 1: Fundamentos da IA
+                    </h3>
+                    <p class="text-slate-400 flex-grow text-sm">Conceitos, arquitetura, ferramentas e exercício prático guiado.</p>
+                </a>
+                <a href="modulo2.html" class="glass-card group bg-slate-800/50 backdrop-blur-lg p-6 rounded-2xl border border-slate-700 flex flex-col transition-all duration-300 transform hover:-translate-y-2">
+                    <h3 class="text-xl font-bold text-cyan-400 mb-3 flex items-center gap-3">
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14" /></svg>
+                        Módulo 2: Marketing
+                    </h3>
+                    <p class="text-slate-400 flex-grow text-sm">Conteúdo, anúncios, funil e prompts prontos.</p>
+                </a>
+                <a href="modulo3.html" class="glass-card group bg-slate-800/50 backdrop-blur-lg p-6 rounded-2xl border border-slate-700 flex flex-col transition-all duration-300 transform hover:-translate-y-2">
+                    <h3 class="text-xl font-bold text-cyan-400 mb-3 flex items-center gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                        Módulo 3: Fiscal
+                    </h3>
+                    <p class="text-slate-400 flex-grow text-sm">NF-e, validações, reconciliação e alertas automáticos.</p>
+                </a>
+                <a href="modulo4.html" class="glass-card group bg-slate-800/50 backdrop-blur-lg p-6 rounded-2xl border border-slate-700 flex flex-col transition-all duration-300 transform hover:-translate-y-2">
+                    <h3 class="text-xl font-bold text-cyan-400 mb-3 flex items-center gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                        Módulo 4: Pessoal
+                    </h3>
+                    <p class="text-slate-400 flex-grow text-sm">Contratos, folha e atendimento com IA.</p>
+                </a>
+                <a href="modulo5.html" class="glass-card group bg-slate-800/50 backdrop-blur-lg p-6 rounded-2xl border border-slate-700 flex flex-col transition-all duration-300 transform hover:-translate-y-2">
+                    <h3 class="text-xl font-bold text-cyan-400 mb-3 flex items-center gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                        Módulo 5: Processos
+                    </h3>
+                    <p class="text-slate-400 flex-grow text-sm">POPs, automações e governança.</p>
+                </a>
+                <a href="modulo6.html" class="glass-card group bg-slate-800/50 backdrop-blur-lg p-6 rounded-2xl border border-slate-700 flex flex-col transition-all duration-300 transform hover:-translate-y-2">
+                    <h3 class="text-xl font-bold text-cyan-400 mb-3 flex items-center gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h3l-3-3h3V7H9v3l3 3-3 3zm-3-1a9 9 0 1118 0 9 9 0 01-18 0z" /></svg>
+                        Módulo 6: Contábil
+                    </h3>
+                    <p class="text-slate-400 flex-grow text-sm">Relatórios, conciliações e GPTs contábeis.</p>
+                </a>
+                <a href="modulo7.html" class="glass-card group bg-slate-800/50 backdrop-blur-lg p-6 rounded-2xl border border-slate-700 flex flex-col transition-all duration-300 transform hover:-translate-y-2">
+                    <h3 class="text-xl font-bold text-cyan-400 mb-3 flex items-center gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        Módulo 7: Sucesso do Cliente
+                    </h3>
+                    <p class="text-slate-400 flex-grow text-sm">Chatbots, fluxos e SLA com IA.</p>
+                </a>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="text-center p-8 mt-16 border-t border-slate-800">
+        <p class="text-slate-400">Autor: Pedro Paiva (T.I)</p>
+        <p class="text-slate-500 mt-1 text-sm">&copy; 2025 MB Contabilidade. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

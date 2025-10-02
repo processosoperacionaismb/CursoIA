@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M7 — Sucesso do Cliente com IA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="mblogo.png">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .glass-card:hover {
+            box-shadow: 0 0 30px rgba(0, 191, 255, 0.1);
+            border-color: rgba(0, 191, 255, 0.2);
+        }
+    </style>
+</head>
+
+<body class="bg-slate-900 text-slate-300 overflow-x-hidden">
+
+    <div class="absolute top-0 left-0 -z-10 h-full w-full">
+        <div class="relative h-full w-full">
+            <div class="absolute top-0 right-0 h-[500px] w-[500px] rounded-full bg-purple-500/20 blur-3xl filter"></div>
+            <div class="absolute bottom-0 left-0 h-[400px] w-[400px] rounded-full bg-cyan-500/20 blur-3xl filter"></div>
+        </div>
+    </div>
+
+    <header class="max-w-5xl mx-auto py-12 px-6">
+        <a href="index.html" class="inline-flex items-center gap-2 bg-slate-700/50 text-cyan-400 font-semibold px-4 py-2 rounded-lg hover:bg-slate-600/50 transition-colors duration-300 border border-slate-600 mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+            </svg>
+            Voltar para a Home
+        </a>
+        <h1 class="text-4xl md:text-5xl font-bold text-white">Módulo 7 — Sucesso do Cliente</h1>
+        <p class="text-xl text-slate-400 mt-2">Chatbots, respostas automáticas e roteamento inteligente.</p>
+    </header>
+
+    <main class="max-w-5xl mx-auto space-y-8 px-6 pb-24">
+        
+        <section class="glass-card bg-slate-800/50 backdrop-blur-lg p-8 rounded-2xl border border-slate-700">
+            <h2 class="font-bold text-2xl text-white mb-4">Como Realizar — FAQ Inteligente (Chatbot)</h2>
+            <ol class="list-decimal list-inside text-slate-300 space-y-2 mb-6">
+                <li>Colete as perguntas mais recorrentes dos seus canais de e-mail e WhatsApp.</li>
+                <li>Organize as perguntas e respostas por tema (Fiscal, Contábil, Pessoal, Abertura de Empresa).</li>
+                <li>Treine o chatbot com essa base de conhecimento (sem usar dados sensíveis de clientes).</li>
+                <li>Defina uma regra de "fallback": se o bot não souber a resposta, ele deve abrir um chamado automaticamente para o setor correto.</li>
+            </ol>
+            <details class="bg-slate-700/50 rounded-lg border border-slate-700">
+                <summary class="font-semibold cursor-pointer p-4">Prompt — Base de conhecimento do Chatbot</summary>
+                <div class="p-4 border-t border-slate-700">
+                    <pre class="whitespace-pre-wrap text-sm text-slate-300 font-mono">Você é um assistente de atendimento da MB Contabilidade. Sua única função é responder perguntas com base no conhecimento fornecido abaixo.
+
+Se a pergunta sair do escopo, sua única resposta deve ser: "Não encontrei a resposta para isso, mas já estou acionando um especialista para te ajudar."
+
+Após essa resposta, crie um ticket com as seguintes informações: [nome do cliente, assunto, urgência].
+
+O formato de todas as suas respostas deve ser curto e indicar os próximos passos para o cliente.</pre>
+                </div>
+            </details>
+        </section>
+
+        <section class="glass-card bg-slate-800/50 backdrop-blur-lg p-8 rounded-2xl border border-slate-700">
+            <h2 class="font-bold text-2xl text-white mb-4">Como Realizar — Resposta Automática com Roteamento</h2>
+            <ul class="list-disc list-inside text-slate-300 space-y-2 mb-6">
+                <li>Crie uma automação que "lê" cada novo e-mail ou mensagem de WhatsApp.</li>
+                <li>A IA deve classificar a intenção da mensagem (Fiscal, Contábil, Pessoal ou Comercial).</li>
+                <li>Com base na classificação, a automação cria um ticket no seu sistema de helpdesk com prioridade e SLA definidos, e já envia uma resposta inicial ao cliente com o prazo esperado.</li>
+                <li>Configure um alerta de escalonamento automático caso o SLA não seja cumprido.</li>
+            </ul>
+            <details class="bg-slate-700/50 rounded-lg border border-slate-700">
+                <summary class="font-semibold cursor-pointer p-4">Prompt — Classificação de Ticket + SLA</summary>
+                <div class="p-4 border-t border-slate-700">
+                    <pre class="whitespace-pre-wrap text-sm text-slate-300 font-mono">Analise a mensagem do cliente abaixo e execute 5 tarefas:
+
+1. Classifique a intenção em uma das categorias: [Fiscal, Contábil, Pessoal, Comercial].
+2. Estime a urgência: [Alta, Média, Baixa].
+3. Gere um título curto para o ticket.
+4. Gere um resumo da solicitação em uma frase.
+5. Crie uma resposta inicial para o cliente, informando que recebemos a mensagem e qual o prazo (SLA) para a resposta completa.
+
+Mensagem:
+"[colar aqui a mensagem do cliente]"</pre>
+                </div>
+            </details>
+        </section>
+
+        <section class="glass-card bg-slate-800/50 backdrop-blur-lg p-8 rounded-2xl border border-slate-700">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="font-bold text-lg text-cyan-400 mb-2">Ferramentas</h3>
+                    <ul class="list-disc list-inside text-slate-300 space-y-1">
+                        <li>Plataforma de bot</li>
+                        <li>Zapier / Make</li>
+                        <li>Sistema de Helpdesk</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg text-cyan-400 mb-2">KPIs</h3>
+                    <ul class="list-disc list-inside text-slate-300 space-y-1">
+                        <li>Tempo de 1ª resposta (↓)</li>
+                        <li>Tickets resolvidos por bot (↑)</li>
+                        <li>CSAT / NPS (↑)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg text-cyan-400 mb-2">Boas Práticas</h3>
+                    <ul class="list-disc list-inside text-slate-300 space-y-1">
+                        <li>Tom de voz humano e empático</li>
+                        <li>Guarde logs de todas as conversas</li>
+                        <li>Atualize a base de conhecimento mensalmente</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M5 — Processos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="mblogo.png">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .glass-card:hover {
+            box-shadow: 0 0 30px rgba(0, 191, 255, 0.1);
+            border-color: rgba(0, 191, 255, 0.2);
+        }
+    </style>
+</head>
+
+<body class="bg-slate-900 text-slate-300 overflow-x-hidden">
+
+    <div class="absolute top-0 left-0 -z-10 h-full w-full">
+        <div class="relative h-full w-full">
+            <div class="absolute top-0 right-0 h-[500px] w-[500px] rounded-full bg-purple-500/20 blur-3xl filter"></div>
+            <div class="absolute bottom-0 left-0 h-[400px] w-[400px] rounded-full bg-cyan-500/20 blur-3xl filter"></div>
+        </div>
+    </div>
+
+    <header class="max-w-5xl mx-auto py-12 px-6">
+        <a href="index.html" class="inline-flex items-center gap-2 bg-slate-700/50 text-cyan-400 font-semibold px-4 py-2 rounded-lg hover:bg-slate-600/50 transition-colors duration-300 border border-slate-600 mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+            </svg>
+            Voltar para a Home
+        </a>
+        <h1 class="text-4xl md:text-5xl font-bold text-white">Módulo 5 — Processos</h1>
+        <p class="text-xl text-slate-400 mt-2">POPs com IA e automações de agenda/tarefas.</p>
+    </header>
+
+    <main class="max-w-5xl mx-auto space-y-8 px-6 pb-24">
+        
+        <section class="glass-card bg-slate-800/50 backdrop-blur-lg p-8 rounded-2xl border border-slate-700">
+            <h2 class="font-bold text-2xl text-white mb-4">Como Realizar — Criar POP com IA</h2>
+            <p class="text-slate-400 mb-4">Use o prompt abaixo para padronizar processos críticos, como:</p>
+            <ol class="list-decimal list-inside text-slate-300 space-y-2 mb-6">
+                <li>Alteração Contratual Padrão.</li>
+                <li>Automação para Vencimento de Certificado Digital (Agendamento).</li>
+                <li>Emissão Automática de Certidão Federal / Estadual.</li>
+            </ol>
+            <details class="bg-slate-700/50 rounded-lg border border-slate-700">
+                <summary class="font-semibold cursor-pointer p-4">Prompt — POP padrão MB</summary>
+                <div class="p-4 border-t border-slate-700">
+                    <pre class="whitespace-pre-wrap text-sm text-slate-300 font-mono">Gere um POP (Procedimento Operacional Padrão) para o processo de "[nome do processo]".
+
+Use a seguinte estrutura:
+1. Objetivo
+2. Escopo (início e fim do processo)
+3. Responsáveis (por área/função)
+4. Entradas e Saídas
+5. Passo a Passo (numerado)
+6. SLA (Tempo de Execução)
+7. Checklists de Verificação
+8. Riscos e Contingências
+9. Indicadores de Sucesso
+
+Adote um tom direto e auditável. Limite cada passo a 2–3 linhas para maior clareza.</pre>
+                </div>
+            </details>
+        </section>
+
+        <section class="glass-card bg-slate-800/50 backdrop-blur-lg p-8 rounded-2xl border border-slate-700">
+            <h2 class="font-bold text-2xl text-white mb-4">Como Realizar — Agenda Automatizada</h2>
+            <ul class="list-disc list-inside text-slate-300 space-y-2">
+                <li>Configure uma automação para, ao iniciar um processo, criar uma tarefa no seu gerenciador (Trello, ClickUp, etc.) já com o checklist extraído do POP.</li>
+                <li>A automação deve então usar a IA para enviar um briefing ao responsável, contendo um resumo da tarefa, o prazo (SLA) e os anexos necessários.</li>
+            </ul>
+        </section>
+
+        <section class="glass-card bg-slate-800/50 backdrop-blur-lg p-8 rounded-2xl border border-slate-700">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="font-bold text-lg text-cyan-400 mb-2">Ferramentas</h3>
+                    <ul class="list-disc list-inside text-slate-300 space-y-1">
+                        <li>Zapier / Make</li>
+                        <li>Google Calendar</li>
+                        <li>Notion / Drive</li>
+                        <li>ChatGPT/Gemini</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg text-cyan-400 mb-2">KPIs</h3>
+                    <ul class="list-disc list-inside text-slate-300 space-y-1">
+                        <li>Atividades no prazo (↑)</li>
+                        <li>Índice de retrabalho (↓)</li>
+                        <li>Horas poupadas com automação (↑)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg text-cyan-400 mb-2">Boas Práticas</h3>
+                    <ul class="list-disc list-inside text-slate-300 space-y-1">
+                        <li>Todo processo deve ter versão e "dono"</li>
+                        <li>Checklists devem ser curtos e objetivos</li>
+                        <li>Revisão trimestral dos POPs</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+</body>
+</html>

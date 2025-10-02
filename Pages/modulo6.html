@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M6 — Contábil com IA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="mblogo.png">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .glass-card:hover {
+            box-shadow: 0 0 30px rgba(0, 191, 255, 0.1);
+            border-color: rgba(0, 191, 255, 0.2);
+        }
+    </style>
+</head>
+
+<body class="bg-slate-900 text-slate-300 overflow-x-hidden">
+
+    <div class="absolute top-0 left-0 -z-10 h-full w-full">
+        <div class="relative h-full w-full">
+            <div class="absolute top-0 right-0 h-[500px] w-[500px] rounded-full bg-purple-500/20 blur-3xl filter"></div>
+            <div class="absolute bottom-0 left-0 h-[400px] w-[400px] rounded-full bg-cyan-500/20 blur-3xl filter"></div>
+        </div>
+    </div>
+
+    <header class="max-w-5xl mx-auto py-12 px-6">
+        <a href="index.html" class="inline-flex items-center gap-2 bg-slate-700/50 text-cyan-400 font-semibold px-4 py-2 rounded-lg hover:bg-slate-600/50 transition-colors duration-300 border border-slate-600 mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+            </svg>
+            Voltar para a Home
+        </a>
+        <h1 class="text-4xl md:text-5xl font-bold text-white">Módulo 6 — Contábil</h1>
+        <p class="text-xl text-slate-400 mt-2">Relatórios automáticos, preenchimentos e GPTs especializados.</p>
+    </header>
+
+    <main class="max-w-5xl mx-auto space-y-8 px-6 pb-24">
+        
+        <section class="glass-card bg-slate-800/50 backdrop-blur-lg p-8 rounded-2xl border border-slate-700">
+            <h2 class="font-bold text-2xl text-white mb-4">Como Realizar — DRE/Balanço com IA</h2>
+            <ol class="list-decimal list-inside text-slate-300 space-y-2 mb-6">
+                <li>Exporte o balancete analítico por competência para uma planilha.</li>
+                <li>Envie o arquivo à IA junto com o plano de contas e as regras de classificação da empresa.</li>
+                <li>Solicite a geração da DRE/Balanço e um rascunho das notas explicativas padrão.</li>
+                <li>Valide os saldos críticos e publique o relatório final em PDF.</li>
+            </ol>
+            <details class="bg-slate-700/50 rounded-lg border border-slate-700">
+                <summary class="font-semibold cursor-pointer p-4">Prompt — Geração de DRE</summary>
+                <div class="p-4 border-t border-slate-700">
+                    <pre class="whitespace-pre-wrap text-sm text-slate-300 font-mono">Com base no balancete (anexo) e no plano de contas fornecido, gere a DRE do período [mm/aaaa].
+
+Na sequência, anexe uma "Nota de Variações Significativas", com comentários curtos para cada conta com variação maior que 15% em relação ao período anterior.
+
+Formato de saída: Tabela da DRE + Seção de comentários das notas.</pre>
+                </div>
+            </details>
+        </section>
+
+        <section class="glass-card bg-slate-800/50 backdrop-blur-lg p-8 rounded-2xl border border-slate-700">
+            <h2 class="font-bold text-2xl text-white mb-4">Como Realizar — Preenchimentos Repetitivos</h2>
+            <ul class="list-disc list-inside text-slate-300 space-y-2 mb-6">
+                <li>Crie modelos de texto (recibos, cartas, pareceres) com variáveis entre colchetes, como [NOME_CLIENTE].</li>
+                <li>Use a IA para preencher esses modelos em lote a partir de uma planilha (similar a um "mail merge").</li>
+                <li>Configure a automação para exportar cada documento preenchido em PDF.</li>
+            </ul>
+            <details class="bg-slate-700/50 rounded-lg border border-slate-700">
+                <summary class="font-semibold cursor-pointer p-4">Prompt — Mail merge contábil</summary>
+                <div class="p-4 border-t border-slate-700">
+                    <pre class="whitespace-pre-wrap text-sm text-slate-300 font-mono">Use o template abaixo e a planilha de dados anexa para gerar um documento para cada linha da planilha.
+
+Salve cada saída com o nome "[CNPJ]-[TipoDoc]-[Competencia].pdf" e, ao final, crie um índice com links para cada arquivo gerado.
+
+Template:
+[cole aqui o seu texto modelo com as variáveis, como por exemplo: [RAZAO_SOCIAL], [CNPJ], [VALOR], [COMPETENCIA]]</pre>
+                </div>
+            </details>
+        </section>
+
+        <section class="glass-card bg-slate-800/50 backdrop-blur-lg p-8 rounded-2xl border border-slate-700">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="font-bold text-lg text-cyan-400 mb-2">Ferramentas</h3>
+                    <ul class="list-disc list-inside text-slate-300 space-y-1">
+                        <li>LLM corporativo</li>
+                        <li>Excel/Sheets + Copilot</li>
+                        <li>Ferramentas de Exportação PDF</li>
+                        <li>Assinatura Digital</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg text-cyan-400 mb-2">KPIs</h3>
+                    <ul class="list-disc list-inside text-slate-300 space-y-1">
+                        <li>Tempo de fechamento (↓)</li>
+                        <li>Índice de reprocessos (↓)</li>
+                        <li>Satisfação do cliente (↑)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg text-cyan-400 mb-2">Boas Práticas</h3>
+                    <ul class="list-disc list-inside text-slate-300 space-y-1">
+                        <li>Validação humana dos saldos</li>
+                        <li>Segurança no tráfego de dados</li>
+                        <li>Backup e versionamento</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+</body>
+</html>

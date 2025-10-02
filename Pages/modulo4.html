@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M4 — Pessoal com IA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="mblogo.png">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .glass-card:hover {
+            box-shadow: 0 0 30px rgba(0, 191, 255, 0.1);
+            border-color: rgba(0, 191, 255, 0.2);
+        }
+    </style>
+</head>
+
+<body class="bg-slate-900 text-slate-300 overflow-x-hidden">
+
+    <div class="absolute top-0 left-0 -z-10 h-full w-full">
+        <div class="relative h-full w-full">
+            <div class="absolute top-0 right-0 h-[500px] w-[500px] rounded-full bg-purple-500/20 blur-3xl filter"></div>
+            <div class="absolute bottom-0 left-0 h-[400px] w-[400px] rounded-full bg-cyan-500/20 blur-3xl filter"></div>
+        </div>
+    </div>
+
+    <header class="max-w-5xl mx-auto py-12 px-6">
+        <a href="index.html" class="inline-flex items-center gap-2 bg-slate-700/50 text-cyan-400 font-semibold px-4 py-2 rounded-lg hover:bg-slate-600/50 transition-colors duration-300 border border-slate-600 mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+            </svg>
+            Voltar para a Home
+        </a>
+        <h1 class="text-4xl md:text-5xl font-bold text-white">Módulo 4 — Pessoal</h1>
+        <p class="text-xl text-slate-400 mt-2">Contratos, folha e atendimento com IA.</p>
+    </header>
+
+    <main class="max-w-5xl mx-auto space-y-8 px-6 pb-24">
+        
+        <section class="glass-card bg-slate-800/50 backdrop-blur-lg p-8 rounded-2xl border border-slate-700">
+            <h2 class="font-bold text-2xl text-white mb-4">Como Realizar — Contratos e Aditivos</h2>
+            <ol class="list-decimal list-inside text-slate-300 space-y-2 mb-6">
+                <li>Defina um modelo base de contrato, validado juridicamente.</li>
+                <li>Use a IA para preencher as variáveis: partes, função, jornada, salário e cláusulas específicas.</li>
+                <li>Solicite à IA um checklist de conformidade (CLT/Convenção) e pontos de atenção.</li>
+                <li>Exporte o documento final para PDF e registre a versão.</li>
+            </ol>
+            <details class="bg-slate-700/50 rounded-lg border border-slate-700">
+                <summary class="font-semibold cursor-pointer p-4">Prompt — Geração de contrato</summary>
+                <div class="p-4 border-t border-slate-700">
+                    <pre class="whitespace-pre-wrap text-sm text-slate-300 font-mono">Com base no modelo abaixo, preencha as variáveis e gere um contrato de trabalho para o cargo de [cargo] em [cidade/UF].
+
+Inclua cláusulas sobre confidencialidade, LGPD e banco de horas (se aplicável).
+
+Ao final, devolva também um checklist de documentos necessários para a admissão.
+
+[cole aqui o modelo de contrato sanitizado, sem dados sensíveis]</pre>
+                </div>
+            </details>
+        </section>
+
+        <section class="glass-card bg-slate-800/50 backdrop-blur-lg p-8 rounded-2xl border border-slate-700">
+            <h2 class="font-bold text-2xl text-white mb-4">Como Realizar — Conferência de Folha</h2>
+            <ul class="list-disc list-inside text-slate-300 space-y-2 mb-6">
+                <li>Exporte os holerites e as rubricas do período para uma planilha.</li>
+                <li>Peça à IA para conferir as regras: adicionais, descontos, INSS, FGTS, IRRF, segundo os parâmetros informados.</li>
+                <li>Receba um relatório de divergências e envie ao responsável para correção.</li>
+            </ul>
+            <details class="bg-slate-700/50 rounded-lg border border-slate-700">
+                <summary class="font-semibold cursor-pointer p-4">Prompt — Validação de folha</summary>
+                <div class="p-4 border-t border-slate-700">
+                    <pre class="whitespace-pre-wrap text-sm text-slate-300 font-mono">Audite a planilha de folha de pagamento anexa.
+
+Verifique as rubricas, bases de cálculo e os valores de INSS, FGTS e IRRF, conforme as regras que lhe foram informadas.
+
+Aponte as divergências encontradas e, se possível, descreva a fórmula ou o cálculo esperado.
+
+A saída deve ser em formato de tabela.</pre>
+                </div>
+            </details>
+        </section>
+
+        <section class="glass-card bg-slate-800/50 backdrop-blur-lg p-8 rounded-2xl border border-slate-700">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="font-bold text-lg text-cyan-400 mb-2">Ferramentas</h3>
+                    <ul class="list-disc list-inside text-slate-300 space-y-1">
+                        <li>LLM corporativo</li>
+                        <li>Planilhas + Copilot</li>
+                        <li>Assinatura digital</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg text-cyan-400 mb-2">KPIs</h3>
+                    <ul class="list-disc list-inside text-slate-300 space-y-1">
+                        <li>Tempo por admissão (↓)</li>
+                        <li>Divergências por folha (↓)</li>
+                        <li>Prazos e-Social (↑)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg text-cyan-400 mb-2">Riscos & Mitigações</h3>
+                    <ul class="list-disc list-inside text-slate-300 space-y-1">
+                        <li><strong class="text-white">Cláusulas inadequadas:</strong> revisão jurídica</li>
+                        <li><strong class="text-white">Dados sensíveis:</strong> anonimizar e usar ambiente seguro</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+</body>
+</html>
