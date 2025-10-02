@@ -7,7 +7,8 @@
     <title>M7 — Sucesso do Cliente com IA</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" sizes="32x32" href="mblogo.png">
+    <!-- Corrigido: favicon puxando da pasta Public -->
+    <link rel="icon" type="image/png" sizes="32x32" href="Public/mblogo.png">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -53,7 +54,7 @@
             <details class="bg-slate-700/50 rounded-lg border border-slate-700">
                 <summary class="font-semibold cursor-pointer p-4">Prompt — Base de conhecimento do Chatbot</summary>
                 <div class="p-4 border-t border-slate-700">
-                    <pre class="whitespace-pre-wrap text-sm text-slate-300 font-mono">Você é um assistente de atendimento da MB Contabilidade. Sua única função é responder perguntas com base no conhecimento fornecido abaixo.
+<pre class="whitespace-pre-wrap text-sm text-slate-300 font-mono">Você é um assistente de atendimento da MB Contabilidade. Sua única função é responder perguntas com base no conhecimento fornecido abaixo.
 
 Se a pergunta sair do escopo, sua única resposta deve ser: "Não encontrei a resposta para isso, mas já estou acionando um especialista para te ajudar."
 
@@ -75,7 +76,7 @@ O formato de todas as suas respostas deve ser curto e indicar os próximos passo
             <details class="bg-slate-700/50 rounded-lg border border-slate-700">
                 <summary class="font-semibold cursor-pointer p-4">Prompt — Classificação de Ticket + SLA</summary>
                 <div class="p-4 border-t border-slate-700">
-                    <pre class="whitespace-pre-wrap text-sm text-slate-300 font-mono">Analise a mensagem do cliente abaixo e execute 5 tarefas:
+<pre class="whitespace-pre-wrap text-sm text-slate-300 font-mono">Analise a mensagem do cliente abaixo e execute 5 tarefas:
 
 1. Classifique a intenção em uma das categorias: [Fiscal, Contábil, Pessoal, Comercial].
 2. Estime a urgência: [Alta, Média, Baixa].
