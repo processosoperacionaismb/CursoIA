@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo — Setor Comercial | MB Contabilidade</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="Public/mblogo.png">
+  <style>
+    :root{
+      --mb-blue:#0B2A6B; --mb-blue-800:#0A245B; --mb-blue-900:#081C46;
+      --mb-red:#E21936;  --mb-white:#ffffff;   --mb-border:#1f3a78;
+    }
+    body{ font-family:'Poppins',sans-serif; background:var(--mb-blue); color:#e6edf6; }
+    .hero-bg{ position:absolute; inset:0; z-index:-1;
+      background:
+        radial-gradient(900px 420px at -10% 15%, rgba(226,25,54,.18), transparent 60%),
+        radial-gradient(900px 520px at 110% 90%, rgba(255,255,255,.06), transparent 60%),
+        var(--mb-blue);
+    }
+    .section{ padding:3.5rem 1.25rem; }
+    .container{ max-width:1100px; margin:0 auto; }
+    .glass-card{ background:rgba(12,29,73,.6); border:1px solid var(--mb-border); border-radius:16px; }
+    .glass-card:hover{ box-shadow:0 0 28px rgba(226,25,54,.22); border-color:rgba(226,25,54,.5); translate:0 -2px; }
+    .badge{ background:rgba(255,255,255,.08); border:1px solid var(--mb-border); padding:.35rem .7rem; border-radius:999px; font-size:.8rem; }
+    .btn{ display:inline-flex; align-items:center; gap:.5rem; padding:.6rem .9rem; border-radius:.75rem; font-weight:600; }
+    .btn-outline{ border:1px solid var(--mb-border); color:#fff; background:rgba(255,255,255,.06); }
+    .btn-outline:hover{ background:rgba(255,255,255,.12); transform:translateY(-1px); }
+    .btn-primary{ background:var(--mb-red); color:#fff; }
+    .btn-primary:hover{ filter:brightness(1.05); transform:translateY(-1px); }
+    .accent{ color:var(--mb-red); }
+    .callout{ background:rgba(255,255,255,.06); border-left:4px solid var(--mb-red); }
+    .kbd{ border:1px solid var(--mb-border); padding:.1rem .4rem; border-radius:.4rem; font-size:.75rem; background:rgba(255,255,255,.06); }
+    .list-dot > li{ position:relative; padding-left:1rem; }
+    .list-dot > li::before{ content:"•"; position:absolute; left:0; color:var(--mb-red); }
+    details{ background:rgba(255,255,255,.05); border:1px solid var(--mb-border); border-radius:12px; }
+    details > summary{ cursor:pointer; padding:1rem 1.25rem; font-weight:600; }
+    details > div{ border-top:1px solid var(--mb-border); padding:1rem 1.25rem; }
+    code.inline{ background:rgba(255,255,255,.06); border:1px solid var(--mb-border); padding:.12rem .4rem; border-radius:.35rem; font-size:.8rem; }
+  </style>
+</head>
+
+<body class="overflow-x-hidden">
+  <div class="hero-bg"></div>
+
+  <!-- HEADER -->
+  <header class="section pb-4">
+    <div class="container">
+      <a href="index.html" class="btn btn-outline mb-5">← Voltar ao Curso</a>
+      <img src="Public/mblogo.png" alt="MB Contabilidade" class="h-12 w-auto mb-5 drop-shadow"/>
+      <h1 class="text-3xl md:text-5xl font-bold leading-tight">
+        Setor Comercial — <span class="accent">Scripts, Mensagens, Atas e Agenda</span>
+      </h1>
+      <p class="text-slate-200/90 text-lg mt-2">Templates prontos para acelerar vendas, comunicação e organização de reuniões.</p>
+
+      <!-- NAV LOCAL -->
+      <nav class="mt-6 flex flex-wrap gap-2">
+        <a href="#script-vendas" class="badge">Script de Vendas</a>
+        <a href="#mensagens-clientes" class="badge">Mensagens para Clientes</a>
+        <a href="#ata-reuniao" class="badge">Ata de Reunião</a>
+        <a href="#agenda-eletronica" class="badge">Agenda Eletrônica</a>
+        <a href="#recursos" class="badge">Recursos & Prompts</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO -->
+  <main class="section pt-0">
+    <div class="container space-y-8">
+
+      <!-- SCRIPT DE VENDAS -->
+      <section id="script-vendas" class="glass-card p-6 md:p-8">
+        <h2 class="font-bold text-2xl md:text-3xl text-white mb-3">Script de Vendas</h2>
+        <p class="text-slate-200/90 mb-4">Roteiro simples para prospecção e fechamento de serviços contábeis.</p>
+
+        <details open class="mb-4">
+          <summary>Estrutura do Pitch (telefone/Whats/meet)</summary>
+          <div class="space-y-2 text-slate-200/90">
+            <ol class="list-decimal list-inside space-y-2">
+              <li><b>Abertura:</b> “Oi, [NOME]. Aqui é [SEU NOME] da MB Contabilidade. Ajudo empresas como a sua a <i>reduzir custos e ganhar previsibilidade</i> sem dor de cabeça fiscal.”</li>
+              <li><b>Contexto & Dor:</b> “Hoje vocês estão no Simples/Presumido? O que mais toma tempo aí: <i>folha, notas ou tributos</i>?”</li>
+              <li><b>Proposta de Valor:</b> “Trabalhamos com <b>rotinas automatizadas</b> e um <b>CS dedicado</b>. Normalmente clientes reduzem em <b>20–30%</b> o tempo operacional.”</li>
+              <li><b>Prova & Diferenciais:</b> “Temos POPs auditáveis, governança LGPD, e portal do cliente. Sem letra miúda.”</li>
+              <li><b>Fechamento suave:</b> “Posso te mostrar em 15 min como ficaria para sua empresa? Amanhã às 10h ou 15h?”</li>
+            </ol>
+          </div>
+        </details>
+
+        <details>
+          <summary>Prompt — Gerar copy personalizada por nicho</summary>
+          <div>
+<pre class="whitespace-pre-wrap text-sm text-slate-200/90 font-mono">Atue como copywriter B2B para contabilidade.
+Negócio-alvo: [nicho, ex.: restaurantes delivery em São Paulo].
+Produto: [serviço, ex.: contabilidade especializada + folha + fiscal].
+Dores comuns: [ex.: margem apertada, alto turnover, multas].
+Diferenciais MB: [POPs auditáveis, suporte dedicado, automações, portal].
+Gere:
+1) Abertura (telefone/Whats).
+2) 3 objeções comuns + respostas.
+3) Fechamento suave com 2 opções de horário.
+Tom: consultivo, simples, objetivo.</pre>
+          </div>
+        </details>
+
+        <div class="callout p-4 rounded-md text-slate-200/90 mt-4">
+          <b>LGPD:</b> em prospecção, <u>não</u> inclua dados pessoais sensíveis. Registre base legal (legítimo interesse) e forneça opção de opt-out.
+        </div>
+      </section>
+
+      <!-- MENSAGENS PARA CLIENTES -->
+      <section id="mensagens-clientes" class="glass-card p-6 md:p-8">
+        <h2 class="font-bold text-2xl md:text-3xl text-white mb-3">Mensagens para Clientes</h2>
+        <p class="text-slate-200/90 mb-4">Modelos prontos (e adaptáveis) para o ciclo comercial.</p>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <details open>
+            <summary>Follow-up de proposta</summary>
+            <div>
+<pre class="whitespace-pre-wrap text-sm text-slate-200/90 font-mono">Assunto: Seguimos com sua proposta?
+
+Oi [NOME],
+Enviei a proposta da MB para [empresa] e queria confirmar se ficou alguma dúvida.
+Se fizer sentido, agendo 15 min para ajustar escopo e prazos. Pode ser [dia/horário 1] ou [dia/horário 2]?
+Abraço, [ASSINATURA]</pre>
+            </div>
+          </details>
+
+          <details>
+            <summary>Confirmação de reunião agendada</summary>
+            <div>
+<pre class="whitespace-pre-wrap text-sm text-slate-200/90 font-mono">Assunto: Reunião confirmada — MB Contabilidade
+
+Oi [NOME], tudo certo?
+Sua reunião está confirmada para [DATA] às [HORA] via [link/endereÃ§o].
+Agenda: [tópicos]. Caso precise reagendar, é só responder esta mensagem.
+Até lá, [ASSINATURA]</pre>
+            </div>
+          </details>
+
+          <details>
+            <summary>Cobrança amistosa de documentos</summary>
+            <div>
+<pre class="whitespace-pre-wrap text-sm text-slate-200/90 font-mono">Assunto: Documentos pendentes — [COMPETÊNCIA]
+
+Oi [NOME],
+Para avançarmos, faltam: [lista]. Pode nos enviar até [DATA]? 
+Se precisar, posso ajudar pelo Whats. Obrigado! [ASSINATURA]</pre>
+            </div>
+          </details>
+
+          <details>
+            <summary>Renovação/upgrade de contrato</summary>
+            <div>
+<pre class="whitespace-pre-wrap text-sm text-slate-200/90 font-mono">Assunto: Renovação de Serviços — MB
+
+Oi [NOME],
+Estamos finalizando o período atual e gostaríamos de renovar com melhorias: [itens].
+Posso te mostrar rapidamente os ganhos? Tenho [opção 1] e [opção 2].
+Fico à disposição, [ASSINATURA]</pre>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- ATA DE REUNIÃO -->
+      <section id="ata-reuniao" class="glass-card p-6 md:p-8">
+        <h2 class="font-bold text-2xl md:text-3xl text-white mb-3">Ata de Reunião</h2>
+        <p class="text-slate-200/90 mb-4">Template objetivo para registrar decisões, responsáveis e prazos.</p>
+
+        <details open class="mb-4">
+          <summary>Template — Ata padrão MB</summary>
+          <div>
+<pre class="whitespace-pre-wrap text-sm text-slate-200/90 font-mono">ATA — Reunião Comercial
+Cliente: [RAZÃO SOCIAL] | CNPJ: [CNPJ]
+Data/Hora: [dd/mm/aaaa - hh:mm] | Participantes: [nomes]
+Objetivo: [ex.: apresentação de proposta]
+
+Resumo dos Tópicos:
+1) [tópico] — Decisão: [texto] — Responsável: [nome] — Prazo: [dd/mm]
+2) [tópico] — Decisão: [texto] — Responsável: [nome] — Prazo: [dd/mm]
+
+Pendências & Próximos Passos:
+- [item] — Responsável: [nome] — Prazo: [dd/mm]
+- [item] — Responsável: [nome] — Prazo: [dd/mm]
+
+Anexos/Links: [drive/pipefy]
+Versão/Local: /Comercial/Atas/[aaaa]/[empresa]-[data].pdf</pre>
+          </div>
+        </details>
+
+        <details>
+          <summary>Prompt — Gerar ata automática a partir de notas</summary>
+          <div>
+<pre class="whitespace-pre-wrap text-sm text-slate-200/90 font-mono">Com base nas anotações abaixo, gere uma ATA no template MB.
+Notas: [colar bullets ou transcrição]
+Exija: decisões, responsáveis, prazos e links de referência.
+Formato de saída: seguir fielmente o template e sinalizar campos ausentes com [PREENCHER].</pre>
+          </div>
+        </details>
+
+        <div class="callout p-4 rounded-md text-slate-200/90 mt-4">
+          <b>LGPD:</b> registrar apenas dados <i>necessários</i>. Evitar dados sensíveis; se indispensável, indicar a base legal e controlar retenção.
+        </div>
+      </section>
+
+      <!-- AGENDA ELETRÔNICA -->
+      <section id="agenda-eletronica" class="glass-card p-6 md:p-8">
+        <h2 class="font-bold text-2xl md:text-3xl text-white mb-3">Agenda Eletrônica — Agendar Reunião & Controle</h2>
+        <p class="text-slate-200/90 mb-4">Fluxo recomendado para organizar agenda e garantir follow-ups.</p>
+
+        <ol class="list-decimal list-inside space-y-2 text-slate-200/90 mb-6">
+          <li><b>Criação:</b> ao marcar reunião, criar evento no Calendar com link (Meet/Zoom) e inserir pauta.</li>
+          <li><b>Convite:</b> enviar confirmação automática ao cliente (modelo acima) e opção de reagendar.</li>
+          <li><b>Lembretes:</b> 24h e 1h antes (e-mail/Whats). Reencaminhar pauta.</li>
+          <li><b>Pós-reunião:</b> gerar ATA pelo template e abrir tarefas no Pipefy/ClickUp para próximos passos.</li>
+          <li><b>Controle:</b> dashboard semanal: nº reuniões, no-shows, taxa de conversão por etapa.</li>
+        </ol>
+
+        <details>
+          <summary>Prompt — Criar convite + tarefas de acompanhamento</summary>
+          <div>
+<pre class="whitespace-pre-wrap text-sm text-slate-200/90 font-mono">Crie:
+1) Texto de convite para reunião em [data/hora] com link [URL] e pauta: [itens].
+2) Lista de tarefas pós-reunião (Pipefy/ClickUp) com responsáveis e prazos.
+3) Lembretes (24h e 1h) em tom profissional e objetivo.</pre>
+          </div>
+        </details>
+
+        <div class="callout p-4 rounded-md text-slate-200/90 mt-4">
+          <b>Boa prática:</b> marcar <span class="kbd">no-show</span> e reagendar automaticamente. Registrar motivo (quando informado) para melhoria contínua.
+        </div>
+      </section>
+
+      <!-- RECURSOS & PROMPTS -->
+      <section id="recursos" class="glass-card p-6 md:p-8">
+        <h2 class="font-bold text-2xl md:text-3xl text-white mb-3">Recursos & Prompts</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="font-semibold text-white mb-2">Prompt — Matriz de objeções</h3>
+<pre class="whitespace-pre-wrap text-sm text-slate-200/90 font-mono">Liste 6 objeções comuns na compra de contabilidade e crie respostas curtas (≤ 2 linhas) em tom consultivo.
+Formate em tabela: [Objeção | Resposta | Evidência/Social Proof sugerida].</pre>
+          </div>
+          <div>
+            <h3 class="font-semibold text-white mb-2">Prompt — Roteiro de demo (15 min)</h3>
+<pre class="whitespace-pre-wrap text-sm text-slate-200/90 font-mono">Monte um roteiro de 15 minutos para demonstrar os serviços MB.
+Seções (com duração): 1) contexto cliente; 2) dor principal; 3) solução MB; 4) diferenciais; 5) próximos passos.
+Inclua 3 perguntas de diagnóstico.</pre>
+          </div>
+        </div>
+
+        <div class="mt-6 flex flex-wrap gap-2">
+          <a href="#script-vendas" class="btn btn-outline">↑ Voltar ao início</a>
+          <a href="index.html#modulos" class="btn btn-primary">← Voltar à trilha</a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="text-center p-8 mt-4" style="border-top:1px solid var(--mb-border); background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));">
+    <p class="text-slate-200/90">Autor: Pedro Paiva (T.I)</p>
+    <p class="text-slate-300 mt-1 text-sm">&copy; 2025 MB Contabilidade. Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>
