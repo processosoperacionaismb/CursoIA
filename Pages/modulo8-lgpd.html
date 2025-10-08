@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Módulo 8 — LGPD & IA | MB Contabilidade</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="64x64" href="Public/mblogo.png">
+  <style>
+    :root{
+      --mb-blue:#0B2A6B; --mb-blue-800:#0A245B; --mb-blue-900:#081C46;
+      --mb-red:#E21936;  --mb-white:#ffffff;   --mb-border:#1f3a78;
+    }
+    body{ font-family:'Poppins',sans-serif; background:var(--mb-blue); color:#e6edf6; }
+    .hero-bg{ position:absolute; inset:0; z-index:-1;
+      background:
+        radial-gradient(900px 420px at -10% 15%, rgba(226,25,54,.18), transparent 60%),
+        radial-gradient(900px 520px at 110% 90%, rgba(255,255,255,.06), transparent 60%),
+        var(--mb-blue);
+    }
+    .section{ padding:4rem 1.5rem; }
+    .container{ max-width:1200px; margin:0 auto; }
+    .card{ background:rgba(12,29,73,.6); border:1px solid var(--mb-border); border-radius:16px; }
+    .card:hover{ border-color:rgba(226,25,54,.5); box-shadow:0 0 26px rgba(226,25,54,.22); }
+    .badge{ background:rgba(255,255,255,.1); border:1px solid var(--mb-border); padding:.25rem .6rem; border-radius:999px; font-size:.75rem; }
+    .accent{ color:var(--mb-red); }
+    .btn{ display:inline-flex; align-items:center; gap:.5rem; padding:.75rem 1rem; border-radius:.75rem; font-weight:600; }
+    .btn-primary{ background:var(--mb-red); color:#fff; }
+    .btn-primary:hover{ filter:brightness(1.05); transform:translateY(-1px); }
+    .btn-outline{ border:1px solid var(--mb-border); color:#fff; background:rgba(255,255,255,.06); }
+    .btn-outline:hover{ background:rgba(255,255,255,.12); transform:translateY(-1px); }
+    .embed-frame{ aspect-ratio:16/9; width:100%; border:1px solid var(--mb-border); border-radius:14px; overflow:hidden;
+      background:linear-gradient(135deg,var(--mb-blue-900),var(--mb-blue-800)); }
+    .kbd{ border:1px solid var(--mb-border); padding:.1rem .4rem; border-radius:.4rem; font-size:.75rem; background:rgba(255,255,255,.06); }
+    .list-dot > li{ position:relative; padding-left:1rem; }
+    .list-dot > li::before{ content:"•"; position:absolute; left:0; color:var(--mb-red); }
+  </style>
+</head>
+<body class="overflow-x-hidden">
+  <div class="hero-bg"></div>
+
+  <!-- Header -->
+  <header class="section pb-6 text-center">
+    <div class="container">
+      <a href="index.html" class="inline-flex items-center gap-2 btn btn-outline mb-6">
+        ← Voltar ao Curso
+      </a>
+      <img src="Public/mblogo.png" alt="MB Contabilidade" class="h-14 w-auto mx-auto mb-6 drop-shadow-lg"/>
+      <h1 class="text-3xl md:text-5xl font-bold leading-tight">
+        Módulo 8: <span class="accent">LGPD & IA</span>
+      </h1>
+      <p class="text-slate-200/90 text-lg max-w-3xl mx-auto mt-4">
+        Como aplicar a LGPD em soluções com IA: bases legais, minimização, anonimização, DPIA, segurança,
+        governança de prompts e fluxos práticos por setor (Fiscal, Pessoal e Contábil).
+      </p>
+
+      <!-- Nav local -->
+      <nav class="mt-8 flex flex-wrap justify-center gap-3">
+        <a href="#definicoes" class="badge">Definições</a>
+        <a href="#principios" class="badge">Princípios & Bases legais</a>
+        <a href="#papeis" class="badge">Papéis & Responsabilidades</a>
+        <a href="#mapa-setores" class="badge">Mapa de Dados por Setor</a>
+        <a href="#pop-titular" class="badge">POP — Titular</a>
+        <a href="#dpia" class="badge">Template DPIA</a>
+        <a href="#seguranca" class="badge">Segurança & Logs</a>
+        <a href="#prompts" class="badge">Governança de Prompts</a>
+        <a href="#checklist" class="badge">Checklist</a>
+        <a href="#faq" class="badge">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Definições -->
+  <section id="definicoes" class="section pt-0">
+    <div class="container grid md:grid-cols-3 gap-6">
+      <div class="card p-6">
+        <h3 class="text-xl font-semibold mb-2">Dado Pessoal</h3>
+        <p>Informação relacionada a pessoa natural identificada ou identificável (ex.: nome, e-mail, CPF, IP).</p>
+      </div>
+      <div class="card p-6">
+        <h3 class="text-xl font-semibold mb-2">Dado Sensível</h3>
+        <p>Origem racial/étnica, convicção religiosa, opinião política, saúde, biometria etc. Regras mais rígidas.</p>
+      </div>
+      <div class="card p-6">
+        <h3 class="text-xl font-semibold mb-2">Tratamento</h3>
+        <p>Toda operação com dado: coleta, produção, recepção, classificação, acesso, uso, armazenamento, eliminação.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Princípios e Bases Legais -->
+  <section id="principios" class="section">
+    <div class="container grid lg:grid-cols-2 gap-6">
+      <div class="card p-6">
+        <h3 class="text-2xl font-bold mb-3">Princípios (LGPD)</h3>
+        <ul class="list-dot space-y-2 text-slate-200/90">
+          <li><b>Finalidade</b> clara e legítima (descrever por que a IA precisa do dado).</li>
+          <li><b>Adequação</b> ao contexto (uso compatível com a finalidade informada).</li>
+          <li><b>Necessidade</b> (minimização: coletar o mínimo indispensável).</li>
+          <li><b>Livre acesso</b> (transparência ao titular).</li>
+          <li><b>Qualidade</b> dos dados (exatidão e atualização).</li>
+          <li><b>Transparência</b> (informar riscos e medidas).</li>
+          <li><b>Segurança</b> (técnica e organizacional).</li>
+          <li><b>Prevenção</b> (evitar danos).</li>
+          <li><b>Não discriminação</b> (tratar vieses em IA).</li>
+          <li><b>Responsabilização</b> e prestação de contas (registros e auditoria).</li>
+        </ul>
+      </div>
+
+      <div class="card p-6">
+        <h3 class="text-2xl font-bold mb-3">Bases Legais para IA (exemplos)</h3>
+        <ul class="list-dot space-y-2 text-slate-200/90">
+          <li><b>Obrigação legal</b>: folha, eSocial, obrigações fiscais.</li>
+          <li><b>Execução de contrato</b>: prestação de serviços contábeis.</li>
+          <li><b>Legítimo interesse</b>: melhoria de processos (exigir teste de balanceamento + opt-out).</li>
+          <li><b>Consentimento</b>: treinamentos/IA com dados além do estritamente necessário.</li>
+          <li><b>Proteção do crédito</b>: quando aplicável.</li>
+        </ul>
+        <p class="mt-3 text-sm opacity-80">Para dados sensíveis, bases específicas (ex.: cumprimento de obrigação legal, exercício regular de direitos, tutela da saúde, consentimento específico etc.).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Papéis -->
+  <section id="papeis" class="section">
+    <div class="container grid lg:grid-cols-3 gap-6">
+      <div class="card p-6">
+        <h3 class="text-xl font-semibold mb-2">Controlador</h3>
+        <p>Decide as finalidades e os meios do tratamento (MB/cliente, conforme contrato).</p>
+        <ul class="list-dot mt-3 space-y-1 text-sm">
+          <li>Define base legal, políticas e retenção.</li>
+          <li>Atende titulares e comunica incidentes.</li>
+        </ul>
+      </div>
+      <div class="card p-6">
+        <h3 class="text-xl font-semibold mb-2">Operador</h3>
+        <p>Realiza o tratamento em nome do controlador (fornecedores/softwares/IA).</p>
+        <ul class="list-dot mt-3 space-y-1 text-sm">
+          <li>Executa conforme instruções e DPA (contrato).</li>
+          <li>Adota controles de segurança e confidencialidade.</li>
+        </ul>
+      </div>
+      <div class="card p-6">
+        <h3 class="text-xl font-semibold mb-2">Encarregado (DPO)</h3>
+        <p>Ponto focal com titulares e ANPD, supervisiona conformidade.</p>
+        <ul class="list-dot mt-3 space-y-1 text-sm">
+          <li>Treina equipe e mantém registros (RoPA).</li>
+          <li>Orienta DPIA e respostas a incidentes.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mapa de Dados por Setor -->
+  <section id="mapa-setores" class="section">
+    <div class="container">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">Mapa de Dados por Setor</h2>
+      <div class="grid lg:grid-cols-3 gap-6">
+        <div class="card p-6">
+          <h3 class="text-xl font-semibold mb-2">Fiscal</h3>
+          <ul class="list-dot space-y-2 text-slate-200/90">
+            <li><b>Dados</b>: CNPJ/CPF, IE, NF-e, XML, endereço, e-mail fiscal.</li>
+            <li><b>Finalidade</b>: escrituração, apuração de impostos, obrigações acessórias.</li>
+            <li><b>Base</b>: obrigação legal/contratual.</li>
+            <li><b>IA</b>: validação automática de NF, conciliação, alertas.</li>
+            <li><b>Riscos</b>: exposição de CPF/endereços → <span class="accent">anonimizar/máscara</span> em prompts.</li>
+          </ul>
+        </div>
+        <div class="card p-6">
+          <h3 class="text-xl font-semibold mb-2">Pessoal</h3>
+          <ul class="list-dot space-y-2 text-slate-200/90">
+            <li><b>Dados</b>: CPF, RG, endereço, dependentes, saúde (atestado) <i>(sensível)</i>.</li>
+            <li><b>Finalidade</b>: admissão, folha, benefícios, eSocial.</li>
+            <li><b>Base</b>: obrigação legal/contratual; sensíveis sob bases específicas.</li>
+            <li><b>IA</b>: checklists e conferências; <b>evitar</b> enviar dados sensíveis a LLMs.</li>
+            <li><b>Riscos</b>: vazamento de holerites → <span class="accent">criptografia, acesso mínimo</span>.</li>
+          </ul>
+        </div>
+        <div class="card p-6">
+          <h3 class="text-xl font-semibold mb-2">Contábil</h3>
+          <ul class="list-dot space-y-2 text-slate-200/90">
+            <li><b>Dados</b>: lançamentos, razão, balancetes, contratos, dados de sócios.</li>
+            <li><b>Finalidade</b>: escrituração, demonstrações, auditoria interna.</li>
+            <li><b>Base</b>: contratual/obrigação legal.</li>
+            <li><b>IA</b>: revisões automáticas, explicações de variação, geração de notas técnicas.</li>
+            <li><b>Riscos</b>: identificação de sócios em prompts → <span class="accent">pseudonimização</span>.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POP atendimento ao titular -->
+  <section id="pop-titular" class="section">
+    <div class="container">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">POP — Atendimento ao Titular (Modelo)</h2>
+      <div class="card p-6">
+        <ol class="list-decimal pl-5 space-y-2 text-slate-200/90">
+          <li><b>Receber</b> a solicitação (acesso, correção, exclusão, portabilidade, revogação, oposição).</li>
+          <li><b>Identificar</b> o solicitante (documento ou fluxo interno verificado).</li>
+          <li><b>Classificar</b> a demanda e acionar o Encarregado.</li>
+          <li><b>Localizar</b> os dados (sistemas, ERPs, pipes, planilhas, e-mails).</li>
+          <li><b>Avaliar base legal</b> e restrições (ex.: retenção por obrigação legal).</li>
+          <li><b>Executar a ação</b> (correção/eliminação/portabilidade) e <b>registrar</b> no log.</li>
+          <li><b>Responder</b> ao titular com explicação e prazos.</li>
+          <li><b>Encerrar</b> e <b>arquivar evidências</b> (chamado, prints, IDs de registro).</li>
+        </ol>
+        <p class="text-sm opacity-80 mt-3">SLA sugerido: confirmação de recebimento em até 5 dias úteis; conclusão conforme complexidade e base legal.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DPIA -->
+  <section id="dpia" class="section">
+    <div class="container grid lg:grid-cols-2 gap-6">
+      <div class="card p-6">
+        <h2 class="text-2xl font-bold mb-2">Template de DPIA (Relatório de Impacto)</h2>
+        <ol class="list-decimal pl-5 space-y-2 text-slate-200/90">
+          <li><b>Projeto</b>: nome, escopo, responsável.</li>
+          <li><b>Descrição do tratamento</b>: dados, finalidade, bases legais, fontes, destinatários.</li>
+          <li><b>IA</b> envolvida: modelo, fornecedor, local de processamento, retenção.</li>
+          <li><b>Riscos</b>: vazamento, viés, identificação, uso indevido, transferência internacional.</li>
+          <li><b>Controles</b>: minimização, anonimização, criptografia, acesso, logs, revisão humana.</li>
+          <li><b>Avaliação</b> de necessidade/proporcionalidade; alternativas menos invasivas.</li>
+          <li><b>Plano</b> de mitigação (responsável, prazo, evidências).</li>
+          <li><b>Revisão</b> periódica e gatilhos (mudanças de escopo/fornecedor/lei).</li>
+        </ol>
+      </div>
+      <div class="card p-6">
+        <h3 class="text-xl font-semibold mb-2">Registros de Operações (RoPA)</h3>
+        <ul class="list-dot space-y-2">
+          <li>Inventário de sistemas e <span class="kbd">datasets</span>.</li>
+          <li>Finalidades, bases legais, prazos de retenção e descarte.</li>
+          <li>Operadores/subprocessadores (contratos e DPAs).</li>
+          <li>Fluxos de dados entre setores, países e terceiros.</li>
+          <li>Logs de acesso, versão de prompts e auditorias.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Segurança -->
+  <section id="seguranca" class="section">
+    <div class="container grid lg:grid-cols-3 gap-6">
+      <div class="card p-6">
+        <h3 class="text-xl font-semibold mb-2">Controles Técnicos</h3>
+        <ul class="list-dot space-y-2">
+          <li>Criptografia em repouso e em trânsito (TLS, at-rest).</li>
+          <li>Gestão de chaves e segredos (vault).</li>
+          <li>Controle de acesso (RBAC), MFA e segregação de ambientes.</li>
+          <li>Backups, retenção, eliminação segura.</li>
+        </ul>
+      </div>
+      <div class="card p-6">
+        <h3 class="text-xl font-semibold mb-2">Controles Organizacionais</h3>
+        <ul class="list-dot space-y-2">
+          <li>Treinamento contínuo e POPs por setor.</li>
+          <li>Política de mesa limpa e uso de e-mail corporativo.</li>
+          <li>Homologação de fornecedores (DPA, sub-processadores, países).</li>
+        </ul>
+      </div>
+      <div class="card p-6">
+        <h3 class="text-xl font-semibold mb-2">Resposta a Incidentes</h3>
+        <ul class="list-dot space-y-2">
+          <li>Detecção e contenção imediata.</li>
+          <li>Avaliação de impacto e evidências.</li>
+          <li>Notificação a controlador/ANPD/titulares quando aplicável.</li>
+          <li>Plano de melhoria pós-incidente.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Governança de Prompts -->
+  <section id="prompts" class="section">
+    <div class="container grid lg:grid-cols-2 gap-6">
+      <div class="card p-6">
+        <h3 class="text-2xl font-bold mb-2">Boas Práticas (Do)</h3>
+        <ul class="list-dot space-y-2">
+          <li>Usar <b>dados sintéticos</b> ou <b>mascarados</b> (ex.: CPF 000.***.***-**).</li>
+          <li>Contexto mínimo necessário + <b>objetivo claro</b>.</li>
+          <li>Registrar versão do prompt e responsável.</li>
+          <li>Revisão humana para decisões de alto impacto.</li>
+          <li>Separar ambientes: teste vs. produção.</li>
+        </ul>
+      </div>
+      <div class="card p-6">
+        <h3 class="text-2xl font-bold mb-2">Evite (Don’t)</h3>
+        <ul class="list-dot space-y-2">
+          <li>Enviar holerites, prontuários, dados sensíveis a modelos públicos.</li>
+          <li>Solicitar dados pessoais quando não indispensáveis.</li>
+          <li>Copiar/colar planilhas inteiras com CPFs/endereços nos prompts.</li>
+          <li>Usar contas pessoais; preferir contas corporativas.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Checklist -->
+  <section id="checklist" class="section">
+    <div class="container card p-6">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">Checklist de Implantação (IA + LGPD)</h2>
+      <ol class="list-decimal pl-5 space-y-2">
+        <li>Mapear dados, finalidade e base legal por processo.</li>
+        <li>Definir minimização, retenção e descarte.</li>
+        <li>Escolher fornecedores e assinar DPA.</li>
+        <li>Elaborar e aprovar DPIA (quando aplicável).</li>
+        <li>Implementar controles técnicos/organizacionais.</li>
+        <li>Treinar a equipe e publicar POPs.</li>
+        <li>Ativar logs, trilhas e rotina de auditoria.</li>
+        <li>Plano de resposta a incidentes e contato do Encarregado.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section">
+    <div class="container grid lg:grid-cols-2 gap-6">
+      <div class="card p-6">
+        <h3 class="text-xl font-semibold mb-2">Posso treinar IA com dados reais?</h3>
+        <p>Somente com base legal adequada e controles fortes. Preferir dados anonimizados/pseudonimizados ou sintéticos.</p>
+      </div>
+      <div class="card p-6">
+        <h3 class="text-xl font-semibold mb-2">ChatGPT/Gemini/Claude podem receber CPFs?</h3>
+        <p>Evite em modelos públicos. Se indispensável, use ambiente corporativo, mascaramento e registro de justificativa.</p>
+      </div>
+      <div class="card p-6">
+        <h3 class="text-xl font-semibold mb-2">Quem responde pelo titular?</h3>
+        <p>O Controlador via Encarregado (DPO). O Operador auxilia conforme contrato (DPA).</p>
+      </div>
+      <div class="card p-6">
+        <h3 class="text-xl font-semibold mb-2">Por quanto tempo guardar logs?</h3>
+        <p>Defina na política de retenção. Manter o mínimo necessário para auditoria e defesa de direitos.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="text-center p-8 mt-8" style="border-top:1px solid var(--mb-border); background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));">
+    <p class="text-slate-200/90">Autor: Pedro Paiva (T.I)</p>
+    <p class="text-slate-300 mt-1 text-sm">&copy; 2025 MB Contabilidade. Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>

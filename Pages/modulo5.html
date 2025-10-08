@@ -1,115 +1,172 @@
 <!DOCTYPE html>
 <html lang="pt-br" class="scroll-smooth">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M5 — Processos</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- Corrigido: favicon puxando da pasta Public -->
-    <link rel="icon" type="image/png" sizes="32x32" href="Public/mblogo.png">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .glass-card:hover {
-            box-shadow: 0 0 30px rgba(0, 191, 255, 0.1);
-            border-color: rgba(0, 191, 255, 0.2);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M5 — Processos | MB Contabilidade</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="Public/mblogo.png">
+  <style>
+    :root{
+      --mb-blue:#0B2A6B; --mb-blue-800:#0A245B; --mb-blue-900:#081C46;
+      --mb-red:#E21936;  --mb-white:#ffffff;   --mb-border:#1f3a78;
+    }
+    body{ font-family:'Poppins',sans-serif; background:var(--mb-blue); color:#e6edf6; }
+    .hero-bg{ position:absolute; inset:0; z-index:-1;
+      background:
+        radial-gradient(900px 420px at -10% 15%, rgba(226,25,54,.18), transparent 60%),
+        radial-gradient(900px 520px at 110% 90%, rgba(255,255,255,.06), transparent 60%),
+        var(--mb-blue);
+    }
+    .section{ padding:3.5rem 1.25rem; }
+    .container{ max-width:1100px; margin:0 auto; }
+    .glass-card{ background:rgba(12,29,73,.6); border:1px solid var(--mb-border); border-radius:16px; }
+    .glass-card:hover{ box-shadow:0 0 28px rgba(226,25,54,.22); border-color:rgba(226,25,54,.5); translate:0 -2px; }
+    .badge{ background:rgba(255,255,255,.08); border:1px solid var(--mb-border); padding:.35rem .7rem; border-radius:999px; font-size:.8rem; }
+    .btn{ display:inline-flex; align-items:center; gap:.5rem; padding:.6rem .9rem; border-radius:.75rem; font-weight:600; }
+    .btn-outline{ border:1px solid var(--mb-border); color:#fff; background:rgba(255,255,255,.06); }
+    .btn-outline:hover{ background:rgba(255,255,255,.12); transform:translateY(-1px); }
+    .btn-primary{ background:var(--mb-red); color:#fff; }
+    .btn-primary:hover{ filter:brightness(1.05); transform:translateY(-1px); }
+    .accent{ color:var(--mb-red); }
+    .callout{ background:rgba(255,255,255,.06); border-left:4px solid var(--mb-red); }
+    .kbd{ border:1px solid var(--mb-border); padding:.1rem .4rem; border-radius:.4rem; font-size:.75rem; background:rgba(255,255,255,.06); }
+    .list-dot > li{ position:relative; padding-left:1rem; }
+    .list-dot > li::before{ content:"•"; position:absolute; left:0; color:var(--mb-red); }
+    details{ background:rgba(255,255,255,.05); border:1px solid var(--mb-border); border-radius:12px; }
+    details > summary{ cursor:pointer; padding:1rem 1.25rem; font-weight:600; }
+    details > div{ border-top:1px solid var(--mb-border); padding:1rem 1.25rem; }
+  </style>
 </head>
 
-<body class="bg-slate-900 text-slate-300 overflow-x-hidden">
+<body class="overflow-x-hidden">
+  <div class="hero-bg"></div>
 
-    <div class="absolute top-0 left-0 -z-10 h-full w-full">
-        <div class="relative h-full w-full">
-            <div class="absolute top-0 right-0 h-[500px] w-[500px] rounded-full bg-purple-500/20 blur-3xl filter"></div>
-            <div class="absolute bottom-0 left-0 h-[400px] w-[400px] rounded-full bg-cyan-500/20 blur-3xl filter"></div>
-        </div>
+  <!-- HEADER -->
+  <header class="section pb-4">
+    <div class="container">
+      <a href="index.html" class="btn btn-outline mb-5">← Voltar ao Curso</a>
+      <img src="Public/mblogo.png" alt="MB Contabilidade" class="h-12 w-auto mb-5 drop-shadow"/>
+      <h1 class="text-3xl md:text-5xl font-bold leading-tight">
+        Módulo 5 — <span class="accent">Processos</span>
+      </h1>
+      <p class="text-slate-200/90 text-lg mt-2">POPs com IA e automações de agenda/tarefas.</p>
+
+      <!-- NAV LOCAL -->
+      <nav class="mt-6 flex flex-wrap gap-2">
+        <a href="#pop" class="badge">Criar POP com IA</a>
+        <a href="#agenda" class="badge">Agenda Automatizada</a>
+        <a href="#operacao" class="badge">Ferramentas • KPIs • Boas Práticas</a>
+        <a href="#prompts" class="badge">Prompt padrão MB</a>
+      </nav>
     </div>
+  </header>
 
-    <header class="max-w-5xl mx-auto py-12 px-6">
-        <a href="index.html" class="inline-flex items-center gap-2 bg-slate-700/50 text-cyan-400 font-semibold px-4 py-2 rounded-lg hover:bg-slate-600/50 transition-colors duration-300 border border-slate-600 mb-6">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
-            </svg>
-            Voltar para a Home
-        </a>
-        <h1 class="text-4xl md:text-5xl font-bold text-white">Módulo 5 — Processos</h1>
-        <p class="text-xl text-slate-400 mt-2">POPs com IA e automações de agenda/tarefas.</p>
-    </header>
+  <!-- CONTEÚDO -->
+  <main class="section pt-0">
+    <div class="container space-y-8">
 
-    <main class="max-w-5xl mx-auto space-y-8 px-6 pb-24">
-        
-        <section class="glass-card bg-slate-800/50 backdrop-blur-lg p-8 rounded-2xl border border-slate-700">
-            <h2 class="font-bold text-2xl text-white mb-4">Como Realizar — Criar POP com IA</h2>
-            <p class="text-slate-400 mb-4">Use o prompt abaixo para padronizar processos críticos, como:</p>
-            <ol class="list-decimal list-inside text-slate-300 space-y-2 mb-6">
-                <li>Alteração Contratual Padrão.</li>
-                <li>Automação para Vencimento de Certificado Digital (Agendamento).</li>
-                <li>Emissão Automática de Certidão Federal / Estadual.</li>
-            </ol>
-            <details class="bg-slate-700/50 rounded-lg border border-slate-700">
-                <summary class="font-semibold cursor-pointer p-4">Prompt — POP padrão MB</summary>
-                <div class="p-4 border-t border-slate-700">
-                    <pre class="whitespace-pre-wrap text-sm text-slate-300 font-mono">Gere um POP (Procedimento Operacional Padrão) para o processo de "[nome do processo]".
+      <!-- POP COM IA -->
+      <section id="pop" class="glass-card p-6 md:p-8">
+        <h2 class="font-bold text-2xl md:text-3xl text-white mb-4">Como Realizar — Criar POP com IA</h2>
+        <p class="text-slate-200/90 mb-4">Padronize processos críticos (ex.: Alteração Contratual, Vencimento de Certificado Digital, Certidões).</p>
+        <ol class="list-decimal list-inside space-y-2 text-slate-200/90 mb-6">
+          <li>Defina o escopo e o “dono” do processo.</li>
+          <li>Use o <b>prompt padrão MB</b> (abaixo) para gerar a primeira versão do POP.</li>
+          <li>Valide com o time e jurídico (quando necessário) e <b>versione</b> (ex.: <span class="kbd">/POPs/Processos/2025/v1.1</span>).</li>
+          <li>Publique o POP no repositório oficial (Notion/Drive) e crie um <b>checklist</b> correspondente.</li>
+        </ol>
 
-Use a seguinte estrutura:
+        <div class="callout p-4 rounded-md text-slate-200/90">
+          <b>LGPD:</b> ao descrever fluxos, substitua dados pessoais por placeholders e defina controles (RBAC, retenção e descarte).
+        </div>
+      </section>
+
+      <!-- AGENDA AUTOMATIZADA -->
+      <section id="agenda" class="glass-card p-6 md:p-8">
+        <h2 class="font-bold text-2xl md:text-3xl text-white mb-4">Como Realizar — Agenda Automatizada</h2>
+        <ul class="list-dot space-y-2 text-slate-200/90">
+          <li>Ao iniciar um processo, criar tarefa no gerenciador (Trello/ClickUp/Pipefy) <b>com checklist</b> do POP.</li>
+          <li>Usar automação (n8n/Power Automate) para enviar um <b>briefing</b> ao responsável: resumo, SLA e anexos.</li>
+          <li>Gerar <b>lembretes</b> com 5 e 1 dia de antecedência (Google Calendar/Teams) e registrar evidências de notificação.</li>
+        </ul>
+        <div class="callout p-4 rounded-md text-slate-200/90 mt-4">
+          <b>Boa prática:</b> encerrar a tarefa só com checklist 100% marcado e anexos obrigatórios presentes.
+        </div>
+      </section>
+
+      <!-- OPERAÇÃO -->
+      <section id="operacao" class="glass-card p-6 md:p-8">
+        <div class="grid md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="font-bold text-lg accent mb-2">Ferramentas</h3>
+            <ul class="list-dot space-y-1">
+              <li>n8n / Power Automate</li>
+              <li>Google Calendar / Teams</li>
+              <li>Notion / Drive</li>
+              <li>ChatGPT / Gemini / Claude</li>
+              <li>Pipefy (workflow & aprovações)</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg accent mb-2">KPIs</h3>
+            <ul class="list-dot space-y-1">
+              <li>Atividades no prazo (↑)</li>
+              <li>Índice de retrabalho (↓)</li>
+              <li>Horas poupadas com automação (↑)</li>
+              <li>Conformidade com POP (↑)</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg accent mb-2">Boas Práticas</h3>
+            <ul class="list-dot space-y-1">
+              <li>Cada processo com <b>versão</b> e <b>responsável</b> definidos.</li>
+              <li>Checklists curtos e objetivos, alinhados ao POP.</li>
+              <li>Revisão trimestral dos POPs + retroalimentação de lições aprendidas.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROMPTS -->
+      <section id="prompts" class="glass-card p-6 md:p-8">
+        <h2 class="font-bold text-2xl md:text-3xl text-white mb-4">Prompt — POP padrão MB</h2>
+        <details open>
+          <summary>Ver prompt completo</summary>
+          <div>
+<pre class="whitespace-pre-wrap text-sm text-slate-200/90 font-mono">Gere um POP (Procedimento Operacional Padrão) para o processo de "[nome do processo]".
+
+Use a estrutura:
 1. Objetivo
 2. Escopo (início e fim do processo)
 3. Responsáveis (por área/função)
 4. Entradas e Saídas
-5. Passo a Passo (numerado)
+5. Passo a Passo (numerado, 2–3 linhas cada)
 6. SLA (Tempo de Execução)
 7. Checklists de Verificação
 8. Riscos e Contingências
 9. Indicadores de Sucesso
 
-Adote um tom direto e auditável. Limite cada passo a 2–3 linhas para maior clareza.</pre>
-                </div>
-            </details>
-        </section>
+Regras:
+- Tom direto e auditável.
+- Destaque campos que exigem dados pessoais com [PLACEHOLDER] e inclua controle LGPD (base legal, retenção, descarte).
+- Entregue também um checklist sintetizado (máx. 10 itens) e papéis RACI.</pre>
+          </div>
+        </details>
 
-        <section class="glass-card bg-slate-800/50 backdrop-blur-lg p-8 rounded-2xl border border-slate-700">
-            <h2 class="font-bold text-2xl text-white mb-4">Como Realizar — Agenda Automatizada</h2>
-            <ul class="list-disc list-inside text-slate-300 space-y-2">
-                <li>Configure uma automação para, ao iniciar um processo, criar uma tarefa no seu gerenciador (Trello, ClickUp, etc.) já com o checklist extraído do POP.</li>
-                <li>A automação deve então usar a IA para enviar um briefing ao responsável, contendo um resumo da tarefa, o prazo (SLA) e os anexos necessários.</li>
-            </ul>
-        </section>
+        <div class="mt-6 flex flex-wrap gap-2">
+          <a href="#pop" class="btn btn-outline">↑ Voltar ao início do módulo</a>
+          <a href="index.html#modulos" class="btn btn-primary">← Voltar à trilha</a>
+        </div>
+      </section>
 
-        <section class="glass-card bg-slate-800/50 backdrop-blur-lg p-8 rounded-2xl border border-slate-700">
-            <div class="grid md:grid-cols-3 gap-8">
-                <div>
-                    <h3 class="font-bold text-lg text-cyan-400 mb-2">Ferramentas</h3>
-                    <ul class="list-disc list-inside text-slate-300 space-y-1">
-                        <li>Zapier / Make</li>
-                        <li>Google Calendar</li>
-                        <li>Notion / Drive</li>
-                        <li>ChatGPT/Gemini</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="font-bold text-lg text-cyan-400 mb-2">KPIs</h3>
-                    <ul class="list-disc list-inside text-slate-300 space-y-1">
-                        <li>Atividades no prazo (↑)</li>
-                        <li>Índice de retrabalho (↓)</li>
-                        <li>Horas poupadas com automação (↑)</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="font-bold text-lg text-cyan-400 mb-2">Boas Práticas</h3>
-                    <ul class="list-disc list-inside text-slate-300 space-y-1">
-                        <li>Todo processo deve ter versão e "dono"</li>
-                        <li>Checklists devem ser curtos e objetivos</li>
-                        <li>Revisão trimestral dos POPs</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+    </div>
+  </main>
 
-    </main>
+  <footer class="text-center p-8 mt-4" style="border-top:1px solid var(--mb-border); background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));">
+    <p class="text-slate-200/90">Autor: Pedro Paiva (T.I)</p>
+    <p class="text-slate-300 mt-1 text-sm">&copy; 2025 MB Contabilidade. Todos os direitos reservados.</p>
+  </footer>
 </body>
 </html>

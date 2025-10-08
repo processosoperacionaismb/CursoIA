@@ -1,125 +1,187 @@
 <!DOCTYPE html>
 <html lang="pt-br" class="scroll-smooth">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>M2 — Marketing com IA</title>
+  <title>M2 — Marketing com IA | MB Contabilidade</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <!-- Corrigido: favicon puxando da pasta Public -->
   <link rel="icon" type="image/png" sizes="32x32" href="Public/mblogo.png">
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-    }
 
-    .glass-card:hover {
-      box-shadow: 0 0 30px rgba(0, 191, 255, 0.1);
-      border-color: rgba(0, 191, 255, 0.2);
+  <style>
+    :root{
+      --mb-blue:#0B2A6B; --mb-blue-800:#0A245B; --mb-blue-900:#081C46;
+      --mb-red:#E21936;  --mb-white:#ffffff;   --mb-border:#1f3a78;
     }
+    body{ font-family:'Poppins',sans-serif; background:var(--mb-blue); color:#e6edf6; }
+    .hero-bg{ position:absolute; inset:0; z-index:-1;
+      background:
+        radial-gradient(900px 420px at -10% 15%, rgba(226,25,54,.18), transparent 60%),
+        radial-gradient(900px 520px at 110% 90%, rgba(255,255,255,.06), transparent 60%),
+        var(--mb-blue);
+    }
+    .section{ padding:3.5rem 1.25rem; }
+    .container{ max-width:1100px; margin:0 auto; }
+    .glass-card{ background:rgba(12,29,73,.6); border:1px solid var(--mb-border); border-radius:16px; }
+    .glass-card:hover{ box-shadow:0 0 28px rgba(226,25,54,.22); border-color:rgba(226,25,54,.5); translate:0 -2px; }
+    .badge{ background:rgba(255,255,255,.08); border:1px solid var(--mb-border); padding:.35rem .7rem; border-radius:999px; font-size:.8rem; }
+    .btn{ display:inline-flex; align-items:center; gap:.5rem; padding:.6rem .9rem; border-radius:.75rem; font-weight:600; }
+    .btn-outline{ border:1px solid var(--mb-border); color:#fff; background:rgba(255,255,255,.06); }
+    .btn-outline:hover{ background:rgba(255,255,255,.12); transform:translateY(-1px); }
+    .btn-primary{ background:var(--mb-red); color:#fff; }
+    .btn-primary:hover{ filter:brightness(1.05); transform:translateY(-1px); }
+    .accent{ color:var(--mb-red); }
+    .callout{ background:rgba(255,255,255,.06); border-left:4px solid var(--mb-red); }
+    .kbd{ border:1px solid var(--mb-border); padding:.1rem .4rem; border-radius:.4rem; font-size:.75rem; background:rgba(255,255,255,.06); }
+    .list-dot > li{ position:relative; padding-left:1rem; }
+    .list-dot > li::before{ content:"•"; position:absolute; left:0; color:var(--mb-red); }
+    details{ background:rgba(255,255,255,.05); border:1px solid var(--mb-border); border-radius:12px; }
+    details > summary{ cursor:pointer; padding:1rem 1.25rem; font-weight:600; }
+    details > div{ border-top:1px solid var(--mb-border); padding:1rem 1.25rem; }
   </style>
 </head>
 
-<body class="bg-slate-900 text-slate-300 overflow-x-hidden">
+<body class="overflow-x-hidden">
+  <div class="hero-bg"></div>
 
-  <div class="absolute top-0 left-0 -z-10 h-full w-full">
-    <div class="relative h-full w-full">
-      <div class="absolute top-0 right-0 h-[500px] w-[500px] rounded-full bg-purple-500/20 blur-3xl filter"></div>
-      <div class="absolute bottom-0 left-0 h-[400px] w-[400px] rounded-full bg-cyan-500/20 blur-3xl filter"></div>
+  <!-- HEADER -->
+  <header class="section pb-4">
+    <div class="container">
+      <a href="index.html" class="btn btn-outline mb-5">← Voltar ao Curso</a>
+      <img src="Public/mblogo.png" alt="MB Contabilidade" class="h-12 w-auto mb-5 drop-shadow"/>
+      <h1 class="text-3xl md:text-5xl font-bold leading-tight">
+        Módulo 2 — <span class="accent">Marketing com IA</span>
+      </h1>
+      <p class="text-slate-200/90 text-lg mt-2">Geração de conteúdo, anúncios e campanhas baseadas em dados.</p>
+
+      <!-- NAV LOCAL -->
+      <nav class="mt-6 flex flex-wrap gap-2">
+        <a href="#posts" class="badge"> Posts</a>
+        <a href="#ads" class="badge"> Anúncios</a>
+        <a href="#operacao" class="badge">Operação (Ferramentas/KPIs/Riscos)</a>
+        <a href="#recursos" class="badge">Recursos & Prompts</a>
+      </nav>
     </div>
-  </div>
-
-  <header class="max-w-5xl mx-auto py-12 px-6">
-    <a href="index.html"
-      class="inline-flex items-center gap-2 bg-slate-700/50 text-cyan-400 font-semibold px-4 py-2 rounded-lg hover:bg-slate-600/50 transition-colors duration-300 border border-slate-600 mb-6">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-        <path fill-rule="evenodd"
-          d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-          clip-rule="evenodd" />
-      </svg>
-      Voltar para a Home
-    </a>
-    <h1 class="text-4xl md:text-5xl font-bold text-white">Módulo 2 — Marketing com IA</h1>
-    <p class="text-xl text-slate-400 mt-2">Geração de conteúdo, anúncios e campanhas baseadas em dados.</p>
   </header>
 
-  <main class="max-w-5xl mx-auto space-y-8 px-6 pb-24">
+  <!-- CONTEÚDO -->
+  <main class="section pt-0">
+    <div class="container space-y-8">
 
-    <section class="glass-card bg-slate-800/50 backdrop-blur-lg p-8 rounded-2xl border border-slate-700">
-      <h2 class="font-bold text-2xl text-white mb-4">Playbook — 5 Posts sobre Simples Nacional</h2>
-      <ol class="list-decimal list-inside text-slate-300 space-y-2 mb-6">
-        <li>Defina a persona (Ex: ME/MEI, faturamento, dores).</li>
-        <li>Use o prompt "Calendário editorial" para gerar ideias.</li>
-        <li>Peça 5 variações com títulos, legendas e call-to-action.</li>
-        <li>Gere artes com instruções de layout (sem dados sensíveis).</li>
-        <li>Agende nas redes sociais (Meta, LinkedIn) e monitore métricas.</li>
-      </ol>
-      <details class="bg-slate-700/50 rounded-lg border border-slate-700">
-        <summary class="font-semibold cursor-pointer p-4">Prompt — Calendário editorial</summary>
-        <div class="p-4 border-t border-slate-700">
-          <pre class="whitespace-pre-wrap text-sm text-slate-300 font-mono">Crie 5 posts para Instagram/LinkedIn sobre "Benefícios do Simples Nacional" para microempresas de serviços.
+      <!--  POSTS -->
+      <section id="posts" class="glass-card p-6 md:p-8">
+        <h2 class="font-bold text-2xl md:text-3xl text-white mb-4">5 Posts sobre Simples Nacional</h2>
+        <ol class="list-decimal list-inside space-y-2 text-slate-200/90 mb-6">
+          <li>Defina a <b>persona</b> (ex.: ME/MEI, faturamento, dores).</li>
+          <li>Use o prompt <span class="kbd">Calendário editorial</span> para gerar ideias.</li>
+          <li>Peça <b>5 variações</b> com títulos, legendas e call-to-action.</li>
+          <li>Gere artes com instruções de layout (sem dados sensíveis).</li>
+          <li>Agende e monitore métricas (Meta/LinkedIn) → ajuste semanal.</li>
+        </ol>
 
-Inclua: título (máx. 60 chars), legenda (120–160), CTA e hashtags.
-Formato de saída: tabela com Colunas [Título | Legenda | CTA | Hashtags].
-Tom: didático, direto. Proibido jargões técnicos sem explicação.</pre>
+        <details>
+          <summary>Prompt — Calendário editorial</summary>
+          <div>
+<pre class="whitespace-pre-wrap text-sm text-slate-200/90 font-mono">Crie 5 posts para Instagram/LinkedIn sobre "Benefícios do Simples Nacional" para microempresas de serviços.
+Inclua: título (≤ 60), legenda (120–160), CTA e hashtags.
+Formato: tabela [Título | Legenda | CTA | Hashtags].
+Tom: didático e direto. Explique termos técnicos quando necessário.</pre>
+          </div>
+        </details>
+
+        <div class="callout p-4 rounded-md text-slate-200/90 mt-4">
+          <b>Dica:</b> mantenha um <i>repositório</i> de peças aprovadas e copies com boas métricas para reutilização.
         </div>
-      </details>
-    </section>
+      </section>
 
-    <section class="glass-card bg-slate-800/50 backdrop-blur-lg p-8 rounded-2xl border border-slate-700">
-      <h2 class="font-bold text-2xl text-white mb-4">Playbook — Anúncios (Meta/Google)</h2>
-      <p class="text-slate-400 mb-4">Estrutura de campanha para aquisição de leads qualificados.</p>
-      <ul class="list-disc list-inside text-slate-300 space-y-2 mb-6">
-        <li>Pesquisa de termos com IA (intenção: "abrir empresa", "trocar contabilidade").</li>
-        <li>Crie 3 variações de anúncio (copy curta, benefício, prova social).</li>
-        <li>Landing page com FAQ gerado por IA + formulário simples.</li>
-        <li>Pixel configurado com eventos de conversão (ViewContent, Lead).</li>
-        <li>Teste A/B semanal com relatório automático de insights.</li>
-      </ul>
-      <details class="bg-slate-700/50 rounded-lg border border-slate-700">
-        <summary class="font-semibold cursor-pointer p-4">Prompt — 3 variações de anúncio</summary>
-        <div class="p-4 border-t border-slate-700">
-          <pre class="whitespace-pre-wrap text-sm text-slate-300 font-mono">Gere 3 variações de anúncio para Google/Meta sobre "Contabilidade para ME em [sua cidade]".
+      <!--  ANÚNCIOS -->
+      <section id="ads" class="glass-card p-6 md:p-8">
+        <h2 class="font-bold text-2xl md:text-3xl text-white mb-2"> — Anúncios (Meta/Google)</h2>
+        <p class="text-slate-200/90 mb-4">Estrutura de campanha para aquisição de leads qualificados.</p>
+        <ul class="list-dot space-y-2 text-slate-200/90 mb-6">
+          <li>Pesquisa de termos com IA (intenção: “abrir empresa”, “trocar contabilidade”).</li>
+          <li>Criar 3 variações de anúncio (copy curta, benefício, prova social).</li>
+          <li>Landing page com FAQ gerado por IA + formulário simples.</li>
+          <li>Pixel/Tags configurados com eventos de conversão (ViewContent, Lead).</li>
+          <li>Teste A/B semanal + relatório automático de insights.</li>
+        </ul>
 
-Inclua: Headline (máx. 30), Descrição (máx. 90), Extensões/Assets recomendados.
+        <details class="">
+          <summary>Prompt — 3 variações de anúncio</summary>
+          <div>
+<pre class="whitespace-pre-wrap text-sm text-slate-200/90 font-mono">Gere 3 variações de anúncio para Google/Meta sobre "Contabilidade para ME em [sua cidade]".
+Inclua: Headline (≤ 30), Descrição (≤ 90), Extensões/Assets recomendados.
 Destaque diferenciais: atendimento especialista, preço transparente, abertura grátis.
 Formato: tabela.</pre>
-        </div>
-      </details>
-    </section>
+          </div>
+        </details>
+      </section>
 
-    <section class="glass-card bg-slate-800/50 backdrop-blur-lg p-8 rounded-2xl border border-slate-700">
-      <div class="grid md:grid-cols-3 gap-8">
-        <div>
-          <h3 class="font-bold text-lg text-cyan-400 mb-2">Ferramentas</h3>
-          <ul class="list-disc list-inside text-slate-300 space-y-1">
-            <li>ChatGPT/Gemini</li>
-            <li>Canva/Figma</li>
-            <li>Meta Business Suite</li>
-            <li>Google Ads</li>
-          </ul>
+      <!-- OPERAÇÃO: FERRAMENTAS, KPIs, RISCOS -->
+      <section id="operacao" class="glass-card p-6 md:p-8">
+        <div class="grid md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="font-bold text-lg accent mb-2">Ferramentas</h3>
+            <ul class="list-dot space-y-1">
+              <li>ChatGPT / Gemini</li>
+              <li>Canva / Figma</li>
+              <li>Meta Business Suite</li>
+              <li>Google Ads</li>
+              <li>Pipefy (aprov. peças/propostas)</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg accent mb-2">KPIs</h3>
+            <ul class="list-dot space-y-1">
+              <li>CPL (Custo por Lead)</li>
+              <li>CTR (Taxa de Cliques)</li>
+              <li>Taxa de Conversão</li>
+              <li>ROI por Campanha</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg accent mb-2">Riscos & Mitigações</h3>
+            <ul class="list-dot space-y-1">
+              <li><b>Promessa agressiva:</b> revisão jurídica e política de claims.</li>
+              <li><b>Anúncio reprovado:</b> checar políticas de Ads e qualificar copy.</li>
+              <li><b>Lead frio:</b> criar sequência de nutrição (e-mail/Whats) com IA.</li>
+              <li><b>LGPD:</b> limitar coleta ao mínimo e informar finalidade no formulário.</li>
+            </ul>
+          </div>
         </div>
-        <div>
-          <h3 class="font-bold text-lg text-cyan-400 mb-2">KPIs</h3>
-          <ul class="list-disc list-inside text-slate-300 space-y-1">
-            <li>CPL (Custo por Lead)</li>
-            <li>CTR (Taxa de Cliques)</li>
-            <li>Taxa de Conversão</li>
-            <li>ROI por Campanha</li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="font-bold text-lg text-cyan-400 mb-2">Riscos & Mitigações</h3>
-          <ul class="list-disc list-inside text-slate-300 space-y-1">
-            <li><strong class="text-white">Promessa agressiva:</strong> revisão jurídica</li>
-            <li><strong class="text-white">Anúncio reprovado:</strong> ler políticas de ads</li>
-            <li><strong class="text-white">Lead frio:</strong> criar sequência de nutrição</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+      </section>
 
+      <!-- RECURSOS & PROMPTS -->
+      <section id="recursos" class="glass-card p-6 md:p-8">
+        <h2 class="font-bold text-2xl md:text-3xl text-white mb-4">Recursos & Prompts</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="font-semibold text-white mb-2">Prompt — Brief de campanha</h3>
+<pre class="whitespace-pre-wrap text-sm text-slate-200/90 font-mono">Atue como planner para campanha de contabilidade.
+Mercado: [cidade/região], Público: [perfil], Ofertas: [lista].
+Meta: [leads/mês] com CPL alvo [R$].
+Entregue: proposta de mensagens, canais, orçamento sugerido e cronograma de 4 semanas.</pre>
+          </div>
+          <div>
+            <h3 class="font-semibold text-white mb-2">Prompt — Landing Page (estrutura)</h3>
+<pre class="whitespace-pre-wrap text-sm text-slate-200/90 font-mono">Crie a estrutura de uma landing page para "Abertura de Empresa".
+Seções: Hero (benefício claro), Prova social, Planos, FAQ (10 itens), Formulário curto.
+Tom: consultivo, transparente. Evite termos jurídicos sem explicação.</pre>
+          </div>
+        </div>
+
+        <div class="mt-6 flex flex-wrap gap-2">
+          <a href="#posts" class="btn btn-outline">↑ Voltar aos Posts</a>
+          <a href="index.html#modulos" class="btn btn-primary">← Voltar à trilha</a>
+        </div>
+      </section>
+
+    </div>
   </main>
+
+  <footer class="text-center p-8 mt-4" style="border-top:1px solid var(--mb-border); background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));">
+    <p class="text-slate-200/90">Autor: Pedro Paiva (T.I)</p>
+    <p class="text-slate-300 mt-1 text-sm">&copy; 2025 MB Contabilidade. Todos os direitos reservados.</p>
+  </footer>
 </body>
 </html>

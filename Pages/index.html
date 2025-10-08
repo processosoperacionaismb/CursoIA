@@ -1,133 +1,256 @@
 <!DOCTYPE html>
 <html lang="pt-br" class="scroll-smooth">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Curso de IA - MB Contabilidade</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" sizes="64x64" href="Public/mblogo.png">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-
-        /* Efeito de brilho sutil para os cards */
-        .glass-card:hover {
-            box-shadow: 0 0 30px rgba(0, 255, 76, 0.15);
-            border-color: rgba(0, 191, 255, 0.3);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Curso de IA - MB Contabilidade</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="64x64" href="Public/mblogo.png">
+  <style>
+    :root{
+      --mb-blue:#0B2A6B;
+      --mb-blue-800:#0A245B;
+      --mb-blue-900:#081C46;
+      --mb-red:#E21936;
+      --mb-white:#ffffff;
+      --mb-card:#0f234d;
+      --mb-border:#1f3a78;
+    }
+    body{ font-family:'Poppins',sans-serif; background:var(--mb-blue); color:#e6edf6; }
+    .glass-card{ background:rgba(12,29,73,0.6); border:1px solid var(--mb-border); }
+    .glass-card:hover{
+      box-shadow: 0 0 32px rgba(226,25,54,0.22);
+      border-color: rgba(226,25,54,0.55);
+      transform: translateY(-4px);
+    }
+    .btn-primary{ background:var(--mb-red); color:var(--mb-white); }
+    .btn-primary:hover{ filter:brightness(1.05); transform:translateY(-2px); }
+    .btn-secondary{ background:rgba(255,255,255,0.08); color:var(--mb-white); border:1px solid var(--mb-border); }
+    .btn-secondary:hover{ background:rgba(255,255,255,0.12); transform:translateY(-2px); }
+    .hero-bg{
+      position:absolute; inset:0; z-index:-1;
+      background:
+        radial-gradient(1000px 500px at -10% 20%, rgba(226,25,54,0.18), transparent 60%),
+        radial-gradient(900px 480px at 110% 90%, rgba(255,255,255,0.06), transparent 60%),
+        var(--mb-blue);
+    }
+    .section-title{ color:var(--mb-white); }
+    .accent{ color:var(--mb-red); }
+    .card-title{ color:#b8c7ff; }
+    .embed-frame{
+      aspect-ratio:16/9; width:100%; border:1px solid var(--mb-border); border-radius:14px; overflow:hidden;
+      background:linear-gradient(135deg,var(--mb-blue-900),var(--mb-blue-800));
+    }
+    .footer{ border-top:1px solid var(--mb-border); background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0)); }
+  </style>
 </head>
 
-<body class="bg-slate-900 text-slate-300 overflow-x-hidden">
+<body class="overflow-x-hidden">
+  <div class="hero-bg"></div>
 
-    <div class="absolute top-0 left-0 -z-10 h-full w-full">
-        <div class="relative h-full w-full">
-            <div class="absolute -top-40 -left-40 h-[400px] w-[400px] rounded-full bg-purple-500/30 blur-3xl filter"></div>
-            <div class="absolute -bottom-40 -right-40 h-[500px] w-[500px] rounded-full bg-cyan-500/20 blur-3xl filter"></div>
-        </div>
+  <header class="min-h-screen flex flex-col items-center justify-center p-6 text-center">
+    <img src="Public/mblogo.png" alt="MB Contabilidade" class="h-16 w-auto mb-8 drop-shadow-lg" />
+    <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 leading-tight">
+      Desvende o Futuro da Contabilidade<br> com <span class="accent">Inteligência Artificial</span>
+    </h1>
+    <p class="text-xl md:text-2xl text-slate-200/90 mb-8 max-w-3xl mx-auto">
+      Automatize tarefas, ganhe precisão e transforme dados em estratégia.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#modulos" class="btn-primary font-semibold px-8 py-3 rounded-lg shadow-lg transition-all">Ver Módulos do Curso</a>
+      <a href="#oque" class="btn-secondary font-semibold px-8 py-3 rounded-lg shadow-lg transition-all">O que é IA?</a>
     </div>
+  </header>
 
-    <header class="min-h-screen flex flex-col items-center justify-center p-6 text-center overflow-hidden">
-        <img src="Public/mblogo.png" alt="MB Contabilidade" class="h-16 w-auto mb-8 shadow-xl" />
-        
-        <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 leading-tight">
-            Desvende o Futuro da Contabilidade<br> com <span class="text-cyan-400">Inteligência Artificial</span>
-        </h1>
-        <p class="text-xl md:text-2xl text-slate-400 mb-8 max-w-3xl mx-auto">
-            Automatize tarefas, ganhe precisão e transforme dados em estratégia.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#modulos"
-                class="bg-cyan-500 text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-cyan-600 transform hover:-translate-y-1 transition-all duration-300">
-                Ver Módulos do Curso
-            </a>
-            <a href="#oque"
-                class="bg-slate-700/50 backdrop-blur-sm text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-slate-600/50 transform hover:-translate-y-1 transition-all duration-300 border border-slate-600">
-                O que é IA?
-            </a>
+  <section id="oque" class="py-20">
+    <div class="max-w-7xl mx-auto text-center px-6 lg:px-8 xl:max-w-screen-xl">
+      <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">A Revolução Silenciosa da Contabilidade</h2>
+      <p class="text-lg text-slate-200/90 mb-12 max-w-3xl mx-auto">
+        IA não é sobre substituir pessoas. É sobre potencializar o seu talento, eliminando o trabalho repetitivo para focar na estratégia.
+      </p>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="glass-card p-8 rounded-2xl transition-all">
+          <h4 class="text-xl font-bold card-title mb-3">Agilidade</h4>
+          <p>Fechamentos, conciliações e validações em uma fração do tempo.</p>
         </div>
-    </header>
+        <div class="glass-card p-8 rounded-2xl transition-all">
+          <h4 class="text-xl font-bold card-title mb-3">Dados Inteligentes</h4>
+          <p>Encontre qualquer informação em segundos usando linguagem natural.</p>
+        </div>
+        <div class="glass-card p-8 rounded-2xl transition-all">
+          <h4 class="text-xl font-bold card-title mb-3">Precisão Absoluta</h4>
+          <p>Reduza erros humanos a quase zero e garanta conformidade total.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section id="oque" class="py-24">
-        <div class="max-w-7xl mx-auto text-center px-6 lg:px-8 xl:max-w-screen-xl">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">A Revolução Silenciosa da Contabilidade</h2>
-            <p class="text-lg text-slate-400 mb-12 max-w-3xl mx-auto">IA não é sobre substituir pessoas. É sobre potencializar o seu talento, eliminando o trabalho repetitivo para que você possa focar no que realmente importa: a estratégia.</p>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="glass-card bg-slate-800/50 backdrop-blur-lg p-8 rounded-2xl border border-slate-700 transition-all duration-300">
-                    <h4 class="text-xl font-bold text-white mb-3">Agilidade Extrema</h4>
-                    <p>Fechamentos, conciliações e validações em uma fração do tempo.</p>
-                </div>
-                <div class="glass-card bg-slate-800/50 backdrop-blur-lg p-8 rounded-2xl border border-slate-700 transition-all duration-300">
-                    <h4 class="text-xl font-bold text-white mb-3">Dados Inteligentes</h4>
-                    <p>Encontre qualquer informação em segundos usando linguagem natural.</p>
-                </div>
-                <div class="glass-card bg-slate-800/50 backdrop-blur-lg p-8 rounded-2xl border border-slate-700 transition-all duration-300">
-                    <h4 class="text-xl font-bold text-white mb-3">Precisão Absoluta</h4>
-                    <p>Reduza erros humanos a quase zero e garanta conformidade total.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <main class="py-20 px-6" id="modulos">
+    <div class="max-w-7xl mx-auto xl:max-w-screen-xl">
+      <h2 class="section-title text-3xl md:text-4xl font-bold text-center mb-16">Trilha de Aprendizagem Completa</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <a href="modulo1.html" class="glass-card p-6 rounded-2xl flex flex-col transition-all">
+          <h3 class="text-xl font-bold accent mb-3">Módulo 1: Fundamentos da IA</h3>
+          <p class="text-slate-200/90 text-sm">Conceitos, arquitetura, ferramentas e exercício prático guiado.</p>
+        </a>
+        <a href="modulo2.html" class="glass-card p-6 rounded-2xl flex flex-col transition-all">
+          <h3 class="text-xl font-bold accent mb-3">Módulo 2: Marketing</h3>
+          <p class="text-slate-200/90 text-sm">Conteúdo, anúncios, funil e prompts prontos.</p>
+        </a>
+        <a href="modulo3.html" class="glass-card p-6 rounded-2xl flex flex-col transition-all">
+          <h3 class="text-xl font-bold accent mb-3">Módulo 3: Fiscal</h3>
+          <p class="text-slate-200/90 text-sm">NF-e, validações, reconciliação e alertas automáticos.</p>
+        </a>
+        <a href="modulo4.html" class="glass-card p-6 rounded-2xl flex flex-col transition-all">
+          <h3 class="text-xl font-bold accent mb-3">Módulo 4: Pessoal</h3>
+          <p class="text-slate-200/90 text-sm">Contratos, folha e atendimento com IA.</p>
+        </a>
+        <a href="modulo5.html" class="glass-card p-6 rounded-2xl flex flex-col transition-all">
+          <h3 class="text-xl font-bold accent mb-3">Módulo 5: Processos</h3>
+          <p class="text-slate-200/90 text-sm">POPs, automações e governança.</p>
+        </a>
+        <a href="modulo6.html" class="glass-card p-6 rounded-2xl flex flex-col transition-all">
+          <h3 class="text-xl font-bold accent mb-3">Módulo 6: Contábil</h3>
+          <p class="text-slate-200/90 text-sm">Relatórios, conciliações e GPTs contábeis.</p>
+        </a>
+        <a href="modulo7.html" class="glass-card p-6 rounded-2xl flex flex-col transition-all">
+          <h3 class="text-xl font-bold accent mb-3">Módulo 7: Sucesso do Cliente</h3>
+          <p class="text-slate-200/90 text-sm">Chatbots, fluxos e SLA com IA.</p>
+        </a>
+        <a href="modulo8-lgpd.html" class="glass-card p-6 rounded-2xl flex flex-col transition-all">
+          <h3 class="text-xl font-bold accent mb-3">Módulo 8: LGPD & IA</h3>
+          <p class="text-slate-200/90 text-sm">
+            LGPD no uso da IA: Como utilizar mantendo a segurança de dados.
+          </p>
+        </a>
+      </div>
+    </div>
+  </main>
 
-    <main class="py-24 px-6" id="modulos">
-        <div class="max-w-7xl mx-auto xl:max-w-screen-xl">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-16">Trilha de Aprendizagem Completa</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <a href="modulo1.html" class="glass-card group bg-slate-800/50 backdrop-blur-lg p-6 rounded-2xl border border-slate-700 flex flex-col transition-all duration-300 transform hover:-translate-y-2">
-                    <h3 class="text-xl font-bold text-cyan-400 mb-3 flex items-center gap-3">
-                        <!-- Ícone -->
-                        Módulo 1: Fundamentos da IA
-                    </h3>
-                    <p class="text-slate-400 flex-grow text-sm">Conceitos, arquitetura, ferramentas e exercício prático guiado.</p>
-                </a>
-                <a href="modulo2.html" class="glass-card group bg-slate-800/50 backdrop-blur-lg p-6 rounded-2xl border border-slate-700 flex flex-col transition-all duration-300 transform hover:-translate-y-2">
-                    <h3 class="text-xl font-bold text-cyan-400 mb-3 flex items-center gap-3">
-                        Módulo 2: Marketing
-                    </h3>
-                    <p class="text-slate-400 flex-grow text-sm">Conteúdo, anúncios, funil e prompts prontos.</p>
-                </a>
-                <a href="modulo3.html" class="glass-card group bg-slate-800/50 backdrop-blur-lg p-6 rounded-2xl border border-slate-700 flex flex-col transition-all duration-300 transform hover:-translate-y-2">
-                    <h3 class="text-xl font-bold text-cyan-400 mb-3 flex items-center gap-3">
-                        Módulo 3: Fiscal
-                    </h3>
-                    <p class="text-slate-400 flex-grow text-sm">NF-e, validações, reconciliação e alertas automáticos.</p>
-                </a>
-                <a href="modulo4.html" class="glass-card group bg-slate-800/50 backdrop-blur-lg p-6 rounded-2xl border border-slate-700 flex flex-col transition-all duration-300 transform hover:-translate-y-2">
-                    <h3 class="text-xl font-bold text-cyan-400 mb-3 flex items-center gap-3">
-                        Módulo 4: Pessoal
-                    </h3>
-                    <p class="text-slate-400 flex-grow text-sm">Contratos, folha e atendimento com IA.</p>
-                </a>
-                <a href="modulo5.html" class="glass-card group bg-slate-800/50 backdrop-blur-lg p-6 rounded-2xl border border-slate-700 flex flex-col transition-all duration-300 transform hover:-translate-y-2">
-                    <h3 class="text-xl font-bold text-cyan-400 mb-3 flex items-center gap-3">
-                        Módulo 5: Processos
-                    </h3>
-                    <p class="text-slate-400 flex-grow text-sm">POPs, automações e governança.</p>
-                </a>
-                <a href="modulo6.html" class="glass-card group bg-slate-800/50 backdrop-blur-lg p-6 rounded-2xl border border-slate-700 flex flex-col transition-all duration-300 transform hover:-translate-y-2">
-                    <h3 class="text-xl font-bold text-cyan-400 mb-3 flex items-center gap-3">
-                        Módulo 6: Contábil
-                    </h3>
-                    <p class="text-slate-400 flex-grow text-sm">Relatórios, conciliações e GPTs contábeis.</p>
-                </a>
-                <a href="modulo7.html" class="glass-card group bg-slate-800/50 backdrop-blur-lg p-6 rounded-2xl border border-slate-700 flex flex-col transition-all duration-300 transform hover:-translate-y-2">
-                    <h3 class="text-xl font-bold text-cyan-400 mb-3 flex items-center gap-3">
-                        Módulo 7: Sucesso do Cliente
-                    </h3>
-                    <p class="text-slate-400 flex-grow text-sm">Chatbots, fluxos e SLA com IA.</p>
-                </a>
-            </div>
+  <!-- FERRAMENTAS (agora com +1: Pipefy) -->
+  <section id="ferramentas" class="py-20 px-6">
+    <div class="max-w-7xl mx-auto xl:max-w-screen-xl">
+      <h2 class="section-title text-3xl md:text-4xl font-bold text-center mb-12">Ferramentas</h2>
+      <p class="text-slate-200/90 text-center mb-10 max-w-3xl mx-auto">
+        Conjunto de apps para criar conteúdos, protótipos e automações do curso.
+      </p>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <a href="https://gamma.app" target="_blank" rel="noopener" class="glass-card p-6 rounded-2xl block">
+          <h3 class="text-lg font-bold accent mb-2">Gamma (apresentações e cursos)</h3>
+          <p class="text-sm text-slate-200/90">Crie aulas, e-books e páginas com IA em minutos.</p>
+        </a>
+        <a href="https://chat.openai.com" target="_blank" rel="noopener" class="glass-card p-6 rounded-2xl block">
+          <h3 class="text-lg font-bold accent mb-2">ChatGPT</h3>
+          <p class="text-sm text-slate-200/90">Geração de conteúdo, prompts e agentes para tarefas contábeis.</p>
+        </a>
+        <a href="https://gemini.google.com" target="_blank" rel="noopener" class="glass-card p-6 rounded-2xl block">
+          <h3 class="text-lg font-bold accent mb-2">Gemini</h3>
+          <p class="text-sm text-slate-200/90">Pesquisa, redação e integração com ecossistema Google.</p>
+        </a>
+        <a href="https://www.n8n.io" target="_blank" rel="noopener" class="glass-card p-6 rounded-2xl block">
+          <h3 class="text-lg font-bold accent mb-2">n8n (automações)</h3>
+          <p class="text-sm text-slate-200/90">Orquestre fluxos entre e-mail, planilhas, ERPs e IA.</p>
+        </a>
+        <a href="https://www.notion.so/product/ai" target="_blank" rel="noopener" class="glass-card p-6 rounded-2xl block">
+          <h3 class="text-lg font-bold accent mb-2">Notion AI</h3>
+          <p class="text-sm text-slate-200/90">Bases de conhecimento, POPs e templates com IA embutida.</p>
+        </a>
+        <!-- NOVA FERRAMENTA: Pipefy -->
+        <a href="https://www.pipefy.com/pt-br/" target="_blank" rel="noopener" class="glass-card p-6 rounded-2xl block">
+          <h3 class="text-lg font-bold accent mb-2">Pipefy (processos & automações)</h3>
+          <p class="text-sm text-slate-200/90">
+            Gestão de processos, aprovações e integrações. Crie pipes, formulários e automações com gatilhos — perfeito para rotinas de Fiscal, Pessoal e Onboarding.
+          </p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TUTORIAIS (agora com +1: Pipefy) -->
+  <section id="tutoriais" class="py-10 pb-20 px-6">
+    <div class="max-w-7xl mx-auto xl:max-w-screen-xl">
+      <h2 class="section-title text-3xl md:text-4xl font-bold text-center mb-12">Tutoriais em Vídeo</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="glass-card p-4 rounded-2xl">
+          <h3 class="text-lg font-semibold text-white mb-3">Gamma: Criando cursos do zero</h3>
+          <div class="embed-frame" data-yt="https://www.youtube.com/watch?v=nnBEHMzsmvw"></div>
         </div>
-    </main>
-    
-    <footer class="text-center p-8 mt-16 border-t border-slate-800">
-        <p class="text-slate-400">Autor: Pedro Paiva (T.I)</p>
-        <p class="text-slate-500 mt-1 text-sm">&copy; 2025 MB Contabilidade. Todos os direitos reservados.</p>
-    </footer>
+        <div class="glass-card p-4 rounded-2xl">
+          <h3 class="text-lg font-semibold text-white mb-3">ChatGPT na rotina contábil</h3>
+          <div class="embed-frame" data-yt="https://www.youtube.com/watch?v=V6LQdPsWgFc"></div>
+        </div>
+        <div class="glass-card p-4 rounded-2xl">
+          <h3 class="text-lg font-semibold text-white mb-3">LGPD: Boas práticas no uso de IA</h3>
+          <div class="embed-frame" data-yt="https://www.youtube.com/watch?v=skekoAcAo7k"></div>
+        </div>
+        <!-- NOVO VÍDEO: Pipefy -->
+        <div class="glass-card p-4 rounded-2xl">
+          <h3 class="text-lg font-semibold text-white mb-3">Pipefy: automação de processos</h3>
+          <div class="embed-frame" data-yt="https://www.youtube.com/watch?v=Gwqm1Yigjqk"></div>
+        </div>
+      </div>
+
+      <div class="mt-10 grid lg:grid-cols-2 gap-6">
+        <div class="glass-card rounded-2xl p-6">
+          <h4 class="text-white font-semibold mb-2">Checklist de LGPD para projetos com IA</h4>
+          <ul class="text-slate-200/90 text-sm list-disc pl-5 space-y-1">
+            <li>Definir base legal (consentimento, legítimo interesse, obrigação legal etc.).</li>
+            <li>Minimizar dados e evitar dados sensíveis quando não indispensáveis.</li>
+            <li>Anonimizar/Pseudonimizar sempre que possível.</li>
+            <li>Implementar retenção (prazo e descarte) e trilhas de auditoria.</li>
+            <li>Registrar DPIA (Relatório de Impacto) para riscos relevantes.</li>
+            <li>Treinar equipe e padronizar POPs de atendimento a titulares.</li>
+          </ul>
+        </div>
+        <div class="glass-card rounded-2xl p-6">
+          <h4 class="text-white font-semibold mb-2">Boas práticas com modelos de IA</h4>
+          <ul class="text-slate-200/90 text-sm list-disc pl-5 space-y-1">
+            <li>Evitar enviar CPFs, holerites ou dados sensíveis ao prompt.</li>
+            <li>Preferir dados sintéticos/mascarados nos exemplos.</li>
+            <li>Guardar logs de uso e versões de prompts (governança).</li>
+            <li>Validar saídas críticas com dupla verificação humana.</li>
+            <li>Revisar contratos com fornecedores (DPA, SCCs, sub-processadores).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer text-center p-8 mt-10">
+    <p class="text-slate-200/90">Autor: Pedro Paiva (T.I)</p>
+    <p class="text-slate-300 mt-1 text-sm">&copy; 2025 MB Contabilidade. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Script: converte qualquer link/ID do YouTube em embed e injeta o iframe -->
+  <script>
+    function extractYouTubeID(input){
+      if(!input) return null;
+      if(/^[\w-]{11}$/.test(input)) return input;
+      const patterns = [
+        /youtube\.com\/watch\?v=([\w-]{11})/i,
+        /youtu\.be\/([\w-]{11})/i,
+        /youtube\.com\/embed\/([\w-]{11})/i,
+        /youtube\.com\/shorts\/([\w-]{11})/i
+      ];
+      for(const r of patterns){
+        const m = input.match(r);
+        if(m && m[1]) return m[1];
+      }
+      return null;
+    }
+
+    document.querySelectorAll('.embed-frame').forEach(el=>{
+      const raw = el.getAttribute('data-yt') || '';
+      const id = extractYouTubeID(raw) || 'M7lc1UVf-VE';
+      const src = `https://www.youtube-nocookie.com/embed/${id}?rel=0&modestbranding=1`;
+      el.innerHTML = `<iframe
+          width="100%" height="100%" src="${src}" title="YouTube video"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+    });
+  </script>
 </body>
 </html>

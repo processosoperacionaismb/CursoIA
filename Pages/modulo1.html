@@ -1,115 +1,151 @@
 <!DOCTYPE html>
 <html lang="pt-br" class="scroll-smooth">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M1 — Introdução à IA</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- Corrigido: apontar para Public/ -->
-    <link rel="icon" type="image/png" sizes="32x32" href="Public/mblogo.png">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .glass-card:hover {
-            box-shadow: 0 0 30px rgba(0, 191, 255, 0.1);
-            border-color: rgba(0, 191, 255, 0.2);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 — Introdução à IA | MB Contabilidade</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="Public/mblogo.png">
+  <style>
+    :root{
+      --mb-blue:#0B2A6B; --mb-blue-800:#0A245B; --mb-blue-900:#081C46;
+      --mb-red:#E21936;  --mb-white:#ffffff;   --mb-border:#1f3a78;
+    }
+    body{ font-family:'Poppins',sans-serif; background:var(--mb-blue); color:#e6edf6; }
+    .hero-bg{ position:absolute; inset:0; z-index:-1;
+      background:
+        radial-gradient(900px 420px at -10% 15%, rgba(226,25,54,.18), transparent 60%),
+        radial-gradient(900px 520px at 110% 90%, rgba(255,255,255,.06), transparent 60%),
+        var(--mb-blue);
+    }
+    .section{ padding:3.5rem 1.25rem; }
+    .container{ max-width:1100px; margin:0 auto; }
+    .glass-card{ background:rgba(12,29,73,.6); border:1px solid var(--mb-border); border-radius:16px; }
+    .glass-card:hover{ box-shadow:0 0 28px rgba(226,25,54,.22); border-color:rgba(226,25,54,.5); translate:0 -2px; }
+    .badge{ background:rgba(255,255,255,.08); border:1px solid var(--mb-border); padding:.35rem .7rem; border-radius:999px; font-size:.8rem; }
+    .btn{ display:inline-flex; align-items:center; gap:.5rem; padding:.6rem .9rem; border-radius:.75rem; font-weight:600; }
+    .btn-outline{ border:1px solid var(--mb-border); color:#fff; background:rgba(255,255,255,.06); }
+    .btn-outline:hover{ background:rgba(255,255,255,.12); transform:translateY(-1px); }
+    .btn-primary{ background:var(--mb-red); color:#fff; }
+    .btn-primary:hover{ filter:brightness(1.05); transform:translateY(-1px); }
+    .accent{ color:var(--mb-red); }
+    .callout{ background:rgba(255,255,255,.06); border-left:4px solid var(--mb-red); }
+    .kbd{ border:1px solid var(--mb-border); padding:.1rem .4rem; border-radius:.4rem; font-size:.75rem; background:rgba(255,255,255,.06); }
+    .list-dot > li{ position:relative; padding-left:1rem; }
+    .list-dot > li::before{ content:"•"; position:absolute; left:0; color:var(--mb-red); }
+  </style>
 </head>
 
-<body class="bg-slate-900 text-slate-300 overflow-x-hidden">
+<body class="overflow-x-hidden">
+  <div class="hero-bg"></div>
 
-    <div class="absolute top-0 left-0 -z-10 h-full w-full">
-        <div class="relative h-full w-full">
-            <div class="absolute top-0 right-0 h-[500px] w-[500px] rounded-full bg-purple-500/20 blur-3xl filter"></div>
-            <div class="absolute bottom-0 left-0 h-[400px] w-[400px] rounded-full bg-cyan-500/20 blur-3xl filter"></div>
-        </div>
+  <!-- HEADER -->
+  <header class="section pb-4">
+    <div class="container">
+      <a href="index.html" class="btn btn-outline mb-5">← Voltar ao Curso</a>
+      <img src="Public/mblogo.png" alt="MB Contabilidade" class="h-12 w-auto mb-5 drop-shadow"/>
+      <h1 class="text-3xl md:text-5xl font-bold leading-tight">
+        Módulo 1 — <span class="accent">Introdução à IA</span>
+      </h1>
+      <p class="text-slate-200/90 text-lg mt-2">Visão geral, arquitetura e ferramentas essenciais.</p>
+
+      <!-- NAV LOCAL (âncoras) -->
+      <nav class="mt-6 flex flex-wrap gap-2">
+        <a href="#oquee" class="badge">O que é IA</a>
+        <a href="#fundamentos" class="badge">Fundamentos</a>
+        <a href="#primeiros-passos" class="badge">Primeiros passos</a>
+        <a href="#exercicio" class="badge">Exercício</a>
+      </nav>
     </div>
+  </header>
 
-    <header class="max-w-5xl mx-auto py-12 px-6">
-        <a href="index.html" class="inline-flex items-center gap-2 bg-slate-700/50 text-cyan-400 font-semibold px-4 py-2 rounded-lg hover:bg-slate-600/50 transition-colors duration-300 border border-slate-600 mb-6">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
-            </svg>
-            Voltar para a Home
-        </a>
-        <h1 class="text-4xl md:text-5xl font-bold text-white">Módulo 1 — Introdução à IA</h1>
-        <p class="text-xl text-slate-400 mt-2">Visão geral, arquitetura e ferramentas essenciais.</p>
-    </header>
+  <!-- CONTEÚDO -->
+  <main class="section pt-0">
+    <div class="container space-y-8">
 
-    <main class="max-w-5xl mx-auto space-y-8 px-6 pb-24">
-        
-        <section class="glass-card bg-slate-800/50 backdrop-blur-lg p-8 rounded-2xl border border-slate-700">
-            <h2 class="font-bold text-2xl text-white mb-3">O que é IA (na prática do escritório)</h2>
-            <p class="text-slate-300 leading-relaxed">
-                É um conjunto de técnicas (modelos de linguagem, visão computacional e automações) que interpretam textos e imagens, geram conteúdo, tomam decisões baseadas em regras e integram sistemas para reduzir etapas manuais.
-            </p>
-            <div class="mt-4 flex flex-wrap gap-2">
-                <span class="bg-cyan-400/10 text-cyan-300 text-xs font-medium px-3 py-1 rounded-full">LLMs (ChatGPT/Gemini)</span>
-                <span class="bg-cyan-400/10 text-cyan-300 text-xs font-medium px-3 py-1 rounded-full">Agents/Automações (Zapier/Make)</span>
-                <span class="bg-cyan-400/10 text-cyan-300 text-xs font-medium px-3 py-1 rounded-full">Copilots (Excel/Sheets)</span>
-                <span class="bg-cyan-400/10 text-cyan-300 text-xs font-medium px-3 py-1 rounded-full">OCR/Document AI</span>
-            </div>
-        </section>
+      <!-- O QUE É IA -->
+      <section id="oquee" class="glass-card p-6 md:p-8">
+        <h2 class="font-bold text-2xl md:text-3xl text-white mb-3">O que é IA (na prática do escritório)</h2>
+        <p class="text-slate-200/90 leading-relaxed">
+          Conjunto de técnicas (modelos de linguagem, visão computacional e automações) que interpretam textos e imagens,
+          geram conteúdo, tomam decisões baseadas em regras e integram sistemas para reduzir etapas manuais.
+        </p>
+        <div class="mt-4 flex flex-wrap gap-2">
+          <span class="badge">LLMs (ChatGPT/Gemini/Claude)</span>
+          <span class="badge">Agents & Automações (n8n/Power Automate)</span>
+          <span class="badge">Copilots (Excel/Sheets)</span>
+          <span class="badge">OCR/Document AI</span>
+        </div>
+      </section>
 
-        <section class="glass-card bg-slate-800/50 backdrop-blur-lg p-8 rounded-2xl border border-slate-700">
-            <h2 class="font-bold text-2xl text-white mb-4">Fundamentos de IA — Explicação Detalhada</h2>
-            <p class="text-slate-300 leading-relaxed mb-4">
-                Para um escritório de contabilidade, a IA se traduz em três pilares:
-            </p>
-            <ul class="list-disc list-inside text-slate-300 space-y-2 mb-6">
-                <li><strong class="text-white">Automação:</strong> elimina tarefas repetitivas, como lançamentos e conciliações.</li>
-                <li><strong class="text-white">Análise:</strong> identifica padrões em grandes volumes de dados contábeis e fiscais.</li>
-                <li><strong class="text-white">Previsão:</strong> gera insights estratégicos para tomada de decisão.</li>
+      <!-- FUNDAMENTOS -->
+      <section id="fundamentos" class="glass-card p-6 md:p-8">
+        <h2 class="font-bold text-2xl md:text-3xl text-white mb-4">Fundamentos de IA — Explicação Detalhada</h2>
+        <p class="text-slate-200/90 leading-relaxed mb-4">
+          Para um escritório de contabilidade, a IA se traduz em três pilares:
+        </p>
+        <ul class="list-dot space-y-2 mb-6">
+          <li><b>Automação:</b> elimina tarefas repetitivas, como lançamentos e conciliações.</li>
+          <li><b>Análise:</b> identifica padrões em grandes volumes de dados contábeis e fiscais.</li>
+          <li><b>Previsão:</b> gera insights estratégicos para tomada de decisão.</li>
+        </ul>
+
+        <div class="callout p-4 rounded-md text-slate-200/90">
+          <p><b>Exemplo prático:</b> Em vez de revisar 500 notas fiscais manualmente, a IA valida todas em segundos, aponta inconsistências e entrega um relatório para conferência humana.</p>
+        </div>
+      </section>
+
+      <!-- PRIMEIROS PASSOS -->
+      <section id="primeiros-passos" class="glass-card p-6 md:p-8">
+        <h2 class="font-bold text-2xl md:text-3xl text-white mb-4">Primeiros Passos e Dicas</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="font-bold text-lg accent mb-2">Checklist de Implementação</h3>
+            <ol class="list-decimal list-inside space-y-2 text-slate-200/90">
+              <li>Criar conta na ferramenta de IA escolhida.</li>
+              <li>Definir política de uso (<span class="kbd">nunca colar dados sensíveis</span>).</li>
+              <li>Mapear 3 tarefas repetitivas por setor.</li>
+              <li>Criar biblioteca de prompts com tags por setor.</li>
+            </ol>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg accent mb-2">Dicas para Iniciantes</h3>
+            <ul class="list-dot space-y-2 text-slate-200/90">
+              <li>Comece com uma tarefa simples e bem definida.</li>
+              <li>Prompts são ativos da empresa (versione e registre).</li>
+              <li>Sempre valide a saída da IA com dupla checagem.</li>
             </ul>
+          </div>
+        </div>
+      </section>
 
-            <div class="bg-slate-700/50 border-l-4 border-cyan-400 p-4 rounded-r-lg text-slate-300">
-                <p><strong>Exemplo prático:</strong> Em vez de revisar 500 notas fiscais manualmente, a IA pode validar todas em segundos, apontar inconsistências e entregar um relatório pronto para conferência humana.</p>
-            </div>
-        </section>
-
-        <section class="glass-card bg-slate-800/50 backdrop-blur-lg p-8 rounded-2xl border border-slate-700">
-            <h2 class="font-bold text-2xl text-white mb-4">Primeiros Passos e Dicas</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div>
-                    <h3 class="font-bold text-lg text-cyan-400 mb-2">Checklist de Implementação</h3>
-                    <ol class="list-decimal list-inside text-slate-300 space-y-2">
-                        <li>Criar conta na ferramenta de IA escolhida.</li>
-                        <li>Definir política de uso: <em>nunca colar dados sensíveis</em>.</li>
-                        <li>Mapear 3 tarefas repetitivas por setor.</li>
-                        <li>Criar "Biblioteca de Prompts" com tags por setor.</li>
-                    </ol>
-                </div>
-                <div>
-                    <h3 class="font-bold text-lg text-cyan-400 mb-2">Dicas para Iniciantes</h3>
-                    <ul class="list-disc list-inside text-slate-300 space-y-2">
-                        <li>Comece com uma tarefa simples.</li>
-                        <li>Bons prompts são ativos da empresa.</li>
-                        <li>Sempre valide a saída da IA.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section class="glass-card bg-slate-800/50 backdrop-blur-lg p-8 rounded-2xl border border-slate-700">
-            <h2 class="font-bold text-2xl text-white mb-2">Exercício Prático (15 min)</h2>
-            <p class="text-slate-300 mb-4">Pegue uma tarefa real do seu dia e use o prompt base abaixo para resolvê-la com IA.</p>
-            
-            <div class="bg-slate-900/70 p-4 rounded-lg text-sm text-slate-300 font-mono ring-1 ring-slate-700">
-                <p class="mb-2 text-white"># Prompt base universal</p>
-                <pre class="whitespace-pre-wrap">Você é um assistente especializado em contabilidade.
+      <!-- EXERCÍCIO -->
+      <section id="exercicio" class="glass-card p-6 md:p-8">
+        <h2 class="font-bold text-2xl md:text-3xl text-white mb-2">Exercício Prático</h2>
+        <p class="text-slate-200/90 mb-4">
+          Pegue uma tarefa real do seu dia e use o prompt base abaixo para resolvê-la com IA.
+        </p>
+        <div class="bg-[rgba(0,0,0,.35)] p-4 rounded-lg text-sm text-slate-200/90 font-mono ring-1 ring-[color:var(--mb-border)]">
+<pre class="whitespace-pre-wrap">Você é um assistente especializado em contabilidade.
 Objetivo: [descrever tarefa].
 Contexto: [empresa, regime, período].
 Restrições: linguagem clara, citar base legal quando existir, checklist final.
 Formato de saída: [tabela/lista/etapas].
 Valide riscos e pontos de atenção (LGPD e prazos).</pre>
-            </div>
-        </section>
+        </div>
+        <div class="mt-4 flex flex-wrap gap-2">
+          <a href="#oquee" class="btn btn-outline">↑ Voltar ao início do módulo</a>
+          <a href="index.html#modulos" class="btn btn-primary">← Voltar à trilha</a>
+        </div>
+      </section>
 
-    </main>
+    </div>
+  </main>
+
+  <footer class="text-center p-8 mt-4" style="border-top:1px solid var(--mb-border); background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));">
+    <p class="text-slate-200/90">Autor: Pedro Paiva (T.I)</p>
+    <p class="text-slate-300 mt-1 text-sm">&copy; 2025 MB Contabilidade. Todos os direitos reservados.</p>
+  </footer>
 </body>
 </html>
